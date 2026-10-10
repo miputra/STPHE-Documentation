@@ -1,0 +1,9 @@
+node_modules/
+tests/evidence/
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+agent.md
+AGENTS.md
+To do List.md

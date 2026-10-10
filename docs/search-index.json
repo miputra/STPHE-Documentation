@@ -1,0 +1,362 @@
+[
+  {
+    "url": "index.html#start",
+    "title": "Overview & feature directory · Choose your first workflow",
+    "text": " STPHE (Silly-Tavern-Prompt-Hierarchy-Expanded) organizes SillyTavern’s Chat Completion Prompt Manager. Start with  installation , then create a small folder and move two prompts into it. Existing Prompt Folders settings remain compatible; update your existing copy.  For a practical scenario, put “Rain ambience” and “Tavern dialogue” in a Scenes folder. Give Rain ambience a  Weather  tag, find it with Filter, then use Auto Filter to enable it when recent chat mentions rain.  STPHE dock with a four-prompt example. Use Folder and Prompt in the top toolbar to start organizing."
+  },
+  {
+    "url": "index.html#features",
+    "title": "Overview & feature directory · All features at a glance",
+    "text": "    What you want to do  Guide      Install, refresh, search names, resize or minimize   Getting started & panel     Nest, mute, force-toggle, reorder or multi-select   Folders & ordering     Create, rename, edit, tag, view or preview prompts   Prompts & tags     Match content, tags, XML, regex or recent chat   Manual Filter     Save, lock, group or transfer manual actions   Filter presets     React automatically to chat and control timing   Auto Filter     Back up, merge, replace, import native files or delete   Import, export & removal     Diagnose missing prompts, unexpected toggles or imports   Troubleshooting      Every feature section includes a focused screenshot of the relevant application controls, with a caption explaining what to look for. Captures use sample prompts; colors and spacing may differ with your SillyTavern theme.  The toolbar contains Refresh, Folder, Prompt, Preview, Filter (funnel), Auto Filter (wand), Import / Export, and Remove All."
+  },
+  {
+    "url": "index.html#concepts",
+    "title": "Overview & feature directory · How the parts fit together",
+    "text": " A  prompt  is a native SillyTavern definition. A  folder  organizes active prompts and can temporarily mute its contents. A  tag  is a reusable metadata label; one prompt can have several. A  manual preset  saves matching and targeting settings for buttons you run yourself. An  Auto Filter rule  evaluates a chat condition and applies an effect automatically.  Folders and tags do not insert their names into prompt text. A saved filter is not a saved snapshot of matching prompts: content and tag matches are recomputed when it runs. Full Prompt Preview shows enabled Prompt Manager content, not the entire final API request.  Story contains Weather; Rain ambience and Thunder belong to Weather. Folder indentation shows hierarchy, and row toggles show enabled state."
+  },
+  {
+    "url": "index.html#docs",
+    "title": "Overview & feature directory · Search, examples & release notes",
+    "text": " Use  Search documentation  to jump directly to a feature, for example “XML parameters”, “import tags”, or “before send”. On narrow screens, open the ☰ navigation first. The ◐ button switches light and dark themes. Click a screenshot to inspect the controls at full size.  See  the detailed historical reference and release notes  for earlier releases. The  coverage inventory  maps this documentation review to implementation files. This documentation expansion keeps extension version  3.4.0 ; it does not change runtime behavior.  Use the guides to identify these toolbar buttons, folder controls, and prompt-row actions."
+  },
+  {
+    "url": "getting-started.html#install",
+    "title": "Getting started & panel · Install or update",
+    "text": "  In SillyTavern, open Extensions → Install extension. Use  https://github.com/miputra/STPHE .  Reload SillyTavern and enable the extension if necessary.  Choose a Chat Completion API and open AI Response Configuration once so its native Prompt Manager is available.  Find the floating STPHE panel and press Refresh if the prompt list is not visible.   For manual installation, copy the entire project folder into  data\\default-user\\extensions\\  inside your SillyTavern installation. For example, use  data\\default-user\\extensions\\STPHE\\ , with  manifest.json ,  index.js ,  style.css , and  src/  directly inside that folder. Reload SillyTavern afterward. When upgrading from Prompt Folders, update that copy instead of installing a duplicate.  SillyTavern’s extension installation dialog. Paste the repository URL into this field, then install the extension."
+  },
+  {
+    "url": "getting-started.html#first-folder",
+    "title": "Getting started & panel · Create your first folder",
+    "text": "  Click  Folder  in the toolbar and name it  Scenes .  Use a prompt’s move selector to assign it to Scenes.  Open the folder’s ⋮ menu and choose  New subfolder , such as Weather.  Move another prompt into Weather, then collapse and reopen Scenes with its arrow.  Try the folder master toggle off and on. Individual intended prompt states are preserved.   See  folder muting  for the difference between the master toggle and Enable/Disable ALL.  Open a folder’s More actions menu to create a subfolder or a new prompt inside that folder."
+  },
+  {
+    "url": "getting-started.html#toolbar",
+    "title": "Getting started & panel · Toolbar & status",
+    "text": "    Control  Purpose      Refresh  Read the native prompt list again.    Folder / + Prompt  Create a top-level folder or a new native prompt.    Preview  Read enabled prompts in tree order.    Filter (funnel)  Open manual matching and saved presets.    Auto Filter (wand)  Configure chat-driven rules.    Import/Export  Back up or import the prompt list and folder metadata.    Remove all  Choose which prompts/folders to remove and whether deletion is permanent.     The status area reports prompt/enabled counts. During native updates, loading/busy protection temporarily prevents conflicting tree actions. Wait for it to finish before retrying. See  Remove all choices  before using that menu.  Left to right: Refresh, Folder, Prompt, Preview, Filter, Auto Filter, Import / Export, and Remove All."
+  },
+  {
+    "url": "getting-started.html#search-prompts",
+    "title": "Getting started & panel · Search names & identifiers",
+    "text": " Type into  Search prompts…  to filter the visible tree by prompt name or identifier. Matching ignores case. Clear the input to restore the full tree. Searching changes visibility only; it does not enable or disable anything.  The panel search does not search prompt content or tags. For those, open  Filter  and choose Word, Regex, XML tag, or Prompt tag.  Search prompts contains Rain. The matching Rain ambience row remains visible inside its parent folders."
+  },
+  {
+    "url": "getting-started.html#layout",
+    "title": "Getting started & panel · Move, resize & minimize",
+    "text": " Drag the STPHE header to reposition the dock. Use the header’s grow/shrink controls for step changes,  Move to other side  to switch its anchor, and the resize edge for width or the corner handle for both dimensions. The layout is constrained to the window.  Click Minimize to hide the main panel. Use  Show STPHE  to restore it. Position, dimensions, side and minimized state are saved with the extension’s interface settings.  The panel header has grow, shrink, switch-side, and minimize controls. The lower corner is the resize handle."
+  },
+  {
+    "url": "getting-started.html#compatibility",
+    "title": "Getting started & panel · Native Prompt Manager integration",
+    "text": " The integration has been checked with SillyTavern 1.18.0. It organizes the active Chat Completion Prompt Manager list; it is not a separate prompt engine. Native edits, names, enabled states and preset changes are read back into the panel, and tree ordering is synchronized to native prompt order.  You can organize prompts without a live model connection. Generating replies still requires your usual SillyTavern API setup. If a SillyTavern update changes native controls, open AI Response Configuration and Refresh first; see  missing prompt troubleshooting .  The current panel is labeled STPHE. The prompt-folder organization shown here is the interface used throughout these guides."
+  },
+  {
+    "url": "folders.html#hierarchy",
+    "title": "Folders & ordering · Create, nest, rename & collapse",
+    "text": " Use toolbar  Folder  for a top-level folder. A folder’s ⋮ menu provides  New subfolder ,  New prompt inside , and sibling creation with  New folder after this folder  or  New prompt after this folder . A prompt’s ⋮ menu also offers New folder after this and New prompt after this.  Rename a folder by double-clicking its name or choosing Rename folder from its menu. The collapse arrow hides or shows descendants without changing their enabled state.  Unfiled  is the fixed root for prompts without a folder; it cannot be renamed or moved like an ordinary folder.  Weather is nested inside Story; its prompts are indented one level deeper. The folder chevrons expand or collapse children."
+  },
+  {
+    "url": "folders.html#mute",
+    "title": "Folders & ordering · Master mute & restore",
+    "text": " A folder’s master toggle temporarily disables its contents in the native list while preserving individual intended on/off states shown in the tree. Toggle the folder back on to apply those intended states. A child folder can remain independently muted when its parent is restored.  Changing a prompt’s intended toggle inside a muted folder records what should happen when the ancestor is unmuted; it does not bypass that mute. This is useful for preparing a scene without immediately enabling all its prompts.  Weather is muted. Rain retains its intended ON state while Thunder retains OFF; the folder suppresses both until restored."
+  },
+  {
+    "url": "folders.html#force-all",
+    "title": "Folders & ordering · Enable ALL & Disable ALL",
+    "text": " The square-check and square-X controls beside a folder’s master toggle  force every prompt in that folder and its subfolders on or off . These actions replace the individual states instead of preserving a mixture. They clear overlapping saved master-mute state so the force action can take effect.  Use the master toggle when you want to pause and later restore a group. Use Enable ALL or Disable ALL when you want a new uniform state. They act on the subtree, not only rows currently visible after collapsing or searching.  Each folder row has a toggle, a green check for Enable all, and a red × for Disable all. These controls have different effects."
+  },
+  {
+    "url": "folders.html#indicators",
+    "title": "Folders & ordering · Read mixed & suppressed states",
+    "text": " A folder aggregates the intended states of its descendants. The normal on/off indicator shows a uniform state; a mixed indicator means some prompts are on and others off. A suppressed indicator means the folder has intended enabled content but an ancestor is muting it. An empty folder has no active contents to toggle.  Hover the control to read its explanation; colors depend on the theme. Distinguish these intended states from the native enabled count in the panel status and from the prompts included in Preview.  Weather has a mixed-state amber indicator: Rain is ON and Thunder is OFF. Prompt toggles display each individual state."
+  },
+  {
+    "url": "folders.html#move",
+    "title": "Folders & ordering · Move & reorder with drag and drop",
+    "text": " Use a prompt’s move selector to choose an existing folder, Unfiled, or New folder. To control placement as well as membership, drag rows. On a folder, dropping in its middle moves inside it; dropping at its top or bottom inserts before or after it. Prompt rows offer before/after insertion. Dropping on Unfiled moves to the root.  Dragging a folder carries its descendants. Moving a folder into itself or a descendant is rejected. The tree is flattened from top to bottom and synchronized to native Prompt Manager order, including before sending, so ordering can affect generation.  The selector at the right of Rain ambience shows its current folder, Story/Weather. Choose another folder to move the prompt."
+  },
+  {
+    "url": "folders.html#multi-select",
+    "title": "Folders & ordering · Move several items together",
+    "text": " Hold Ctrl (Windows/Linux) or Cmd (macOS) and click empty space on prompt or folder rows to add or remove selections. Drag a selected row to move the selection together in visible tree order. A selected folder already includes its descendants, so selecting both does not duplicate them.  Selection remains after a drop so you can correct placement. Plain-click empty row space or tree background to clear it. Buttons, toggles and selectors retain their own individual actions; multi-selection is for moving items.  Rain ambience and Thunder are both selected: their rows have a green outline. Ctrl-click selects multiple rows before dragging them together."
+  },
+  {
+    "url": "folders.html#exclusions",
+    "title": "Folders & ordering · Protect prompts from filters",
+    "text": " Each prompt and ordinary folder has two independent exclusion controls: the  funnel  excludes it from manual Filter and Filter presets; the  wand  excludes it from Auto Filter. A folder exclusion is inherited by descendants. Click again to include it.  Exclusion keeps a prompt out of that matching/target-selection workflow. It does not make it immune to a parent folder’s master mute, a force-all action, or direct manual toggling. If a matching sibling causes a containing folder to be muted, excluded descendants are still suppressed by that folder.  The funnel controls manual-filter exclusion; the adjacent wand controls Auto Filter exclusion. These are separate from the prompt’s ON/OFF toggle."
+  },
+  {
+    "url": "folders.html#actions",
+    "title": "Folders & ordering · Folder menu, export & deletion",
+    "text": " A folder’s ⋮ menu also provides  Filter this folder by content… ,  Export this folder ,  Import append after this folder , and deletion choices. Despite the filter label, its dialog supports tags as well as content. Scoped matching starts from that folder’s subtree.   Delete folder only  removes that folder and its subfolders while moving their prompts up one level. The other choices remove contained prompts from the active list, or permanently delete them. See  scoped imports  and  deletion semantics .  A named folder’s More actions menu exposes rename, creation, scoped filtering, import, export, and removal actions."
+  },
+  {
+    "url": "prompts.html#create",
+    "title": "Prompts & tags · Create & insert prompts",
+    "text": " Use  + Prompt  in the toolbar for a new prompt, or a row’s ⋮ menu to place one precisely:  New prompt inside  a folder,  New prompt after this , or  New prompt after this folder . STPHE creates a uniquely named New Prompt and opens its native editor. Set its name and content there, review the native fields, then Save.  STPHE creates a native Prompt Manager definition and inserts it into the active list at the requested position. New prompts inherit other native fields from an existing non-marker template, so review role/injection settings before using them; available fields are controlled by SillyTavern.  New prompt after this inserts a prompt beside the current row. The toolbar’s Prompt button creates one from the panel."
+  },
+  {
+    "url": "prompts.html#edit",
+    "title": "Prompts & tags · Edit, rename & enable",
+    "text": " The pencil opens SillyTavern’s native editor. Edit the prompt’s content and available native settings, then Save. The ⋮ menu’s Rename action also uses the native editing path so the name stays consistent in both interfaces. Some native marker entries do not expose an ordinary editable content field.  The prompt toggle sets its intended enabled state. A muted ancestor can still suppress it. Native changes are reflected in STPHE; press Refresh if the native list has not yet been read again.  The native prompt editor for Rain ambience. Review the name, role, content, and tags before saving changes."
+  },
+  {
+    "url": "prompts.html#tags",
+    "title": "Prompts & tags · Add & remove multiple tags",
+    "text": "  Open a new prompt or edit an existing prompt.  In Tags, type  Weather  and press  Enter  to create one tag.  Type  High Fantasy  and press Enter again. Spaces are allowed inside one tag.  Use × on a chip to remove it, then  Save  the native prompt.   Leading/trailing whitespace is trimmed and duplicate tags are ignored case-insensitively: Weather and weather are the same label. Closing without saving discards the tag draft. Press Enter for each tag before saving; a comma-separated phrase is not a list of separate tags.  Tags are extension metadata keyed by prompt identifier. The same prompt identifier shares its tags across native presets. Tags are not appended to text sent to the model, and they are distinct from XML tags inside prompt content.  The native editor’s Tags field contains Weather and High Fantasy chips. Enter commits each draft tag; × removes it. Save stores the changes."
+  },
+  {
+    "url": "prompts.html#tag-workflows",
+    "title": "Prompts & tags · Use tags to filter & automate",
+    "text": " Open Filter, choose  Prompt tag , enter a full tag name and Apply. Matching is exact and case-insensitive. Select a target and Enable/Disable, or save a preset. In Auto Filter, use Prompt tag in the  effect  to choose which prompts a chat condition controls.  One tag criterion is entered at a time; there is no multi-tag AND/OR builder. The panel’s name search does not search tags. Use  STPHE exports  to preserve assigned tags; native-only exports do not include them.  Prompt tag is set to Weather. Apply finds two matching prompts; the target and Enable/Disable controls determine what changes."
+  },
+  {
+    "url": "prompts.html#view",
+    "title": "Prompts & tags · View content & tags read-only",
+    "text": " Click the eye on a prompt row to open  View prompt . It shows the name, identifier, content, word count, estimated tokens, and read-only tag chips. “No tags” appears for an untagged prompt. There is no tag input or chip removal in this window.  The viewer can use up to 1100px width and 90% of the viewport height, with a resize corner and scrolling for long content. Click  Edit this prompt  to switch to the native editor. Close with × or the backdrop. Token counts are approximate (roughly one token per four characters).  Read-only view of Rain ambience with its identifier, word/token estimate, content, and Weather/Atmosphere tags. Edit this prompt opens the native editor."
+  },
+  {
+    "url": "prompts.html#preview",
+    "title": "Prompts & tags · Preview all enabled prompts",
+    "text": " Toolbar  Preview  opens Full Prompt Preview. It reads currently native-enabled prompts in the tree’s top-to-bottom order, with a section for each name, identifier and content, plus word counts and an aggregate token estimate. Disabled or ancestor-muted prompts are omitted. A progress message appears while large lists are read.  This is a preview of stored Prompt Manager content,  not a reproduction of the complete final API request . Dynamic markers, macros, character/world information and chat can be resolved differently by SillyTavern during generation. Use AI Response Configuration for SillyTavern’s own token count and native inspection tools for the final request.  Full Prompt Preview lists the enabled sample prompts in order with their stored content and counts. Disabled Thunder is omitted."
+  },
+  {
+    "url": "prompts.html#row-actions",
+    "title": "Prompts & tags · Move, export, import beside & remove",
+    "text": " A prompt’s move selector changes its folder. Its ⋮ menu offers Rename, New prompt after this, New folder after this,  Import append after this prompt ,  Export this prompt , and Delete. Single-prompt export includes its tags and relevant folder metadata.  Delete offers  Remove from list (not permanent)  and  Delete prompt PERMANENTLY . Removing from the list leaves the reusable native definition available; permanent deletion removes the definition and may affect other uses of that identifier. Read  removal choices  before confirming.  The prompt menu offers Rename, insertion, Import append after this prompt, Export this prompt, and Delete."
+  },
+  {
+    "url": "filters.html#workflow",
+    "title": "Manual Filter · Open, match, inspect, then act",
+    "text": "  Click the toolbar  Filter  funnel for all active prompts, or a folder’s ⋮ →  Filter this folder by content…  for its subtree.  Keep Match against set to prompt content/tags. Select Match by and enter a criterion.  Click  Apply  to scan. It finds matches without changing their state.  In  Matched prompts , keep All matched or select one named prompt.  Choose The prompt, Last containing folder, or All containing folders.  Click  Enable  or  Disable .   Example: tag Rain ambience as Weather, match Prompt tag = Weather, choose The prompt, then Enable. If no prompts match, refine the criterion; you can still save a valid preset for future matching prompts.  Word is set to rain. Apply finds Rain ambience, then the target controls and Enable/Disable buttons become available."
+  },
+  {
+    "url": "filters.html#scope",
+    "title": "Manual Filter · Global & folder-scoped matching",
+    "text": " Toolbar Filter starts with all live prompts in the active native list. Opening Filter from a folder limits the initial scan to that folder and descendants. Manual funnel exclusions remove prompts from the eligible scan. Folder-scoped presets retain their saved scope.  Scope limits which prompts can match; it does not necessarily limit a folder action.  All containing folders can affect an ancestor outside the starting subtree , including that ancestor’s nonmatching siblings. Choose The prompt when you only want the matching prompts changed.  The Scope line restricts this dialog to Story/Weather and its descendants. Opening Filter from the toolbar instead uses all prompts."
+  },
+  {
+    "url": "filters.html#word",
+    "title": "Manual Filter · Word matching & case sensitivity",
+    "text": " Choose  Word  and enter text found inside prompt content. This is a  substring  search, not a whole-word search. It ignores case unless Case sensitive is checked. It does not search the prompt name.  For example,  rain  matches “Rain falls” and “rainfall”. For whole words, choose Regex and use  \\brain\\b . Use a distinctive phrase when you want to avoid incidental matches.  Word mode searches for rain. The Case sensitive checkbox changes matching; Apply updates Matched prompts."
+  },
+  {
+    "url": "filters.html#regex",
+    "title": "Manual Filter · Regex matching",
+    "text": " Choose  Regex  and enter a JavaScript regular expression without surrounding slash delimiters, for example  \\b(rain|storm)\\b . Regex matching is case-insensitive; there is no separate flags field. Invalid expressions show an error instead of applying an action.  Use  rain.*roof  for rain followed by roof on the same line, or  rain[\\s\\S]*roof  across line breaks. Apply and inspect the results before enabling/disabling, especially for broad patterns.  Regex mode uses rain|thunder to find either term. The match selector and count show the resulting prompts."
+  },
+  {
+    "url": "filters.html#xml",
+    "title": "Manual Filter · XML tags & parameters",
+    "text": "  Choose  XML tag  and enter a plain tag name such as  char , without angle brackets.  Use the scan/magnifier control, Enter, or leave the tag field to discover parameters and values in eligible prompts.  Leave every parameter unchecked to match any occurrence of that tag.  Check a parameter and choose All to require that attribute with any value, or select a specific value.  Check additional parameters to require them all on the  same occurrence  of the tag, then Apply.    <char name=\"Mira\" role=\"healer\">...</char>\n<char name=\"Mira\" role=\"guard\" />   Select name=Mira and role=healer to match the first occurrence. Parameters split across different occurrences do not satisfy the combination. Opening and self-closing tags are supported, with single- or double-quoted attribute values. Tag names ignore case and match a complete name ( char  does not match  character ); attribute names are case-sensitive and specific values compare case-insensitively.  XML tag weather has been scanned. The Parameters area lists discovered attributes; check an attribute and choose a value to narrow the match."
+  },
+  {
+    "url": "filters.html#regex-values",
+    "title": "Manual Filter · Regex: list matched values",
+    "text": "  Regex (list matched values)  first scans the prompt scope for distinct values. It uses the first capture group when present, otherwise the full regex match. Values are trimmed and listed in a dropdown. Apply a pattern such as  region=\"([^\"]+)\" , then choose North instead of All matched values.  The eye beside the value opens its full text, useful when the dropdown truncates a long value. Choosing All uses the original regex; choosing a specific value performs a case-insensitive substring check against the cached prompt content. Thus North can also select a prompt containing Northern. It is not an exact XML-attribute comparison.  The dropdown reuses the scan cache. After editing prompts, click Apply again to refresh it. Saved presets rescan current content when run. This mode is available in manual Filter and its Chat effect picker, not the Auto Filter effect picker.  Regex (list matched values) extracts weather types. The value selector and adjacent eye let you choose or inspect an extracted value."
+  },
+  {
+    "url": "filters.html#tags",
+    "title": "Manual Filter · Prompt tag matching",
+    "text": " Choose  Prompt tag  and enter one complete tag name. Leading/trailing whitespace is removed and case is ignored.  Fantasy  matches a Fantasy tag, but not High Fantasy. It matches saved STPHE tag metadata, not XML or words inside content.  A prompt can have multiple tags; matching any one equal to the query is sufficient. This criterion has no multi-tag AND/OR input. Add or remove tags through the  native edit form , save, then apply again.  Prompt tag Weather matches the two prompts carrying that label. This field searches assigned metadata, not XML inside the prompt."
+  },
+  {
+    "url": "filters.html#targets",
+    "title": "Manual Filter · Prompt & containing-folder targets",
+    "text": "    Target  What changes      The prompt  The individual intended state of each chosen matched prompt.    Last containing folder  The immediate containing folder’s master mute/restore state.    All containing folders  The containing ancestor folders’ master states.     Folder actions affect all their descendants, including nonmatches and excluded siblings. They use master mute/restore, not Force Enable/Disable ALL; enabling a folder preserves individual off states. Enabling a prompt or its immediate folder cannot bypass a different muted ancestor.  Choose one item from Matched prompts to act on its target only, or All matched for the whole result set. Repeated folder targets are consolidated.  Below Matched prompts, choose The prompt, Last containing folder, or All containing folders before clicking Enable or Disable."
+  },
+  {
+    "url": "filters.html#exclusions",
+    "title": "Manual Filter · Manual filter exclusions",
+    "text": " Click a prompt’s or folder’s funnel exclusion control before running Filter to keep it out of manual matching and saved presets. Excluded folders protect their descendants from direct selection by those workflows. The separate wand controls Auto Filter exclusion.  Folder master toggles still affect all descendants, including excluded ones. For example, excluding Core from matching does not protect it from an action that mutes its enclosing Shared folder through another matched prompt. For strict per-prompt changes, use The prompt as the target.  Use a row’s funnel to exclude it from manual filters and saved presets. The adjacent wand is the independent automation exclusion."
+  },
+  {
+    "url": "filters.html#chat",
+    "title": "Manual Filter · Check recent chat manually",
+    "text": " Set  Match against  to Chat. Choose a condition (Word, Regex, or XML-based values), set the number of recent messages to inspect, and click  Check chat . The depth is at least one message in this manual dialog. Each user or assistant message counts individually; it is not a count of conversation pairs.  The result says whether the condition is currently met. This check is  informational : it does not gate the manual Enable/Disable buttons or a Chat preset’s action. If you want automatic conditional behavior, use  Auto Filter .  Match against is Chat. Enter the condition and recent-message depth, then use Check chat to evaluate it."
+  },
+  {
+    "url": "filters.html#chat-xml",
+    "title": "Manual Filter · XML-derived values in chat",
+    "text": " A Chat XML condition uses XML attributes found in prompts as a vocabulary to look for in ordinary chat text. It does not require literal XML in the chat. For example,  <char name=\"Mira\" role=\"healer\">  supplies Mira and healer.  No checked parameters means any known attribute value can trigger. A checked parameter with All accepts any known value for that attribute; a specific value requires that value. Multiple checked parameter groups must all be satisfied within the recent-message window and can be found in different messages. The condition’s vocabulary scan uses prompts eligible for Auto Filter, including its wand exclusions, even in this manual Chat check.  In Chat mode, XML tag is the condition type and location is the tag name. Chat depth limits the messages checked."
+  },
+  {
+    "url": "filters.html#chat-effect",
+    "title": "Manual Filter · Choose what a Chat action affects",
+    "text": " The  Select prompts to affect  area is independent of the chat condition. Choose matching by XML, Word, Regex, Regex (list matched values), or Prompt tag and click Find prompts; alternatively choose prompts and folders manually from the selection tree.  For matched effects, inspect Matched prompts and choose a prompt/folder target before Enable/Disable. Manually chosen prompts change directly, and chosen folders use master mute/restore. The eligible selection respects manual exclusions. You can save the condition and effect as a Chat filter preset.  Select prompts to affect is separate from the chat condition. Choose a selection mode and Find prompts to determine the affected prompts."
+  },
+  {
+    "url": "filters.html#save",
+    "title": "Manual Filter · Save a reusable action",
+    "text": " Enter a preset name and save the current criterion, scope and target. You do not need a successful Apply or a current match to save a valid criterion. Save from prompt content/tags for a Filter preset, or from Chat for a Chat filter preset with its independent effect.  A preset runs a fresh search each time you press its Enable/Disable button. It does not automatically run just because it exists. See  Filter presets  for locks, groups, individual export and collection imports.  Save current match as a filter preset stores the current configuration. Saved presets appear in the group tree below."
+  },
+  {
+    "url": "presets.html#save",
+    "title": "Filter presets · Save & run a preset",
+    "text": " Configure a  manual Filter  criterion, scope and target, enter a name, then save. A valid criterion can be saved even before Apply or when nothing currently matches. The saved row exposes Enable and Disable actions.  Running a preset rereads current prompt content/tags, respects the current exclusions and scope, and applies its saved target. It stores a recipe, not a snapshot. To change a manual recipe, save a new preset and remove the old one, or import a replacement; the manual preset rows do not use Auto Filter’s Update filter editor.  Enter a preset name and Save above the preset tree. Each saved row provides its lock, enable/disable, delete, export, and group controls."
+  },
+  {
+    "url": "presets.html#chat-presets",
+    "title": "Filter presets · Content presets & Chat presets",
+    "text": " The Filter dialog contains separate collections for prompt content/tag presets and Chat filter presets. A content preset stores its match settings and target. A Chat preset stores a recent-chat condition plus independent matched or manually selected effect targets.  A Chat preset can report its current condition, but its manual Enable/Disable action remains under your control even when the condition is not met. Choose Auto Filter for automatic branching. Each collection has its own groups and transfer controls.  Chat mode has its own Save current chat condition + selection as a preset area and separate import/export and group controls."
+  },
+  {
+    "url": "presets.html#locks",
+    "title": "Filter presets · Locks & group switches",
+    "text": " A preset’s lock blocks its manual action buttons. A disabled containing group also blocks descendant preset actions without changing each preset’s own lock. Unlock or enable all relevant ancestors to make the action available again.  Locking or switching a group off does not undo an action already applied, and enabling a group does not execute its presets. These controls govern whether you can run saved actions.  The lock checkbox is per preset. The On button belongs to its group and gates the group without changing individual locks."
+  },
+  {
+    "url": "presets.html#groups",
+    "title": "Filter presets · Create, nest & manage groups",
+    "text": " Use  New preset group  to create a top-level container; a group’s + creates a subgroup. Collapse arrows hide descendants, the pencil renames the group, and its switch enables or blocks the branch. Use the Move selector or drag-and-drop to move groups and presets, including nesting groups. A group cannot be moved into itself or its descendants.  Deleting a group keeps its presets and moves them to the parent rather than deleting those presets. Organize content presets and Chat presets separately.  Scenes contains the Weather subgroup. Group rows have On, new subgroup, rename, move, and delete controls."
+  },
+  {
+    "url": "presets.html#transfer",
+    "title": "Filter presets · Export one preset or import a collection",
+    "text": " Use a preset row’s  Export  control to download that preset with the group ancestry needed to place it. The collection’s Export all saves all its presets and groups. Select a mode and use Import to load either an individual file or a compatible collection file into the appropriate collection.    Import — Append:  keep existing matches and add new entries.   Import — Replace matching:  update matches and add new entries while retaining unrelated ones.   Import — Clear and import:  clear that destination collection and its groups, then load the file.   Matching uses identifier first, then a unique name; ambiguous name matches are rejected. Imports are separate for content presets, Chat presets and Auto Filter rules. Review the  portable preset limitations : these files do not include prompt definitions or assigned tags.  Above the preset groups, select an import mode, use Import, or Export all. The file icon on each preset exports that item."
+  },
+  {
+    "url": "presets.html#delete",
+    "title": "Filter presets · Remove presets without removing prompts",
+    "text": " The preset row’s delete control removes the saved recipe. It does not delete prompt definitions, folder organization, or reverse the enabled states from its last run. Group deletion likewise retains its presets in their parent.  Export a collection before reorganizing it if you want a portable copy of the recipes and group layout. Clearing a preset collection during import is different from clearing the active prompt list.  Each preset has a trash icon; each group has × at the right. Check which row you are removing before using these controls."
+  },
+  {
+    "url": "auto-filter.html#first-rule",
+    "title": "Auto Filter · Create your first rule",
+    "text": "  Open the toolbar wand,  Auto Filter .  Name a rule “Rain scene”. Set its condition to Word =  rain  and depth to 3 recent messages.  For the effect, choose matching by Prompt tag =  Weather  and target The prompt.  Choose  Enable  as the action and add the filter.  Ensure the master switch, rule and containing groups are enabled. Use  Re-evaluate now .   Rain within the window enables matching Weather prompts. When the condition is not met, this Enable rule disables its current targets. Read the next sections before using folder targets or overlapping rules.  Example draft: tavern in the last four chat messages triggers an effect targeting the Atmosphere tag. Add filter stores the rule."
+  },
+  {
+    "url": "auto-filter.html#conditions",
+    "title": "Auto Filter · Conditions & message depth",
+    "text": " Conditions can be Word, Regex, or XML-derived attribute values. Word is a substring match, case-insensitive by default with an optional Case sensitive checkbox. Regex is a JavaScript expression without slash delimiters, matched case-insensitively. Use  \\brain\\b  if rainfall should not count.  Depth N checks the last N chat messages, counting user and assistant messages individually, using their text.  Depth 0 means always true , even without recent chat text. Increasing depth can keep a rule triggered long after the most recent reply stopped mentioning its keyword.  The Condition section chooses the chat match type, text, case sensitivity, and depth. The Effect section below independently chooses the affected prompts."
+  },
+  {
+    "url": "auto-filter.html#xml",
+    "title": "Auto Filter · Use XML values as chat vocabulary",
+    "text": " Enter a tag such as  char  and scan parameters from eligible prompt content. The rule searches recent chat for known attribute values, not literal XML markup. With no parameters checked, any known attribute value can match. Checked parameters with All accept any known value for that attribute; checked specific values require that value. All checked groups must be satisfied somewhere within the window.  For example, selecting name=Mira and role=healer can match those words in different recent messages. Auto Filter exclusions affect the prompt vocabulary available to scan. This differs from  XML matching against prompt content , which requires selected attributes on a single tag occurrence.  XML tag location is entered in the condition. Scan and parameter controls refine which chat XML attributes must match."
+  },
+  {
+    "url": "auto-filter.html#effects",
+    "title": "Auto Filter · Choose effect prompts & folders",
+    "text": " The effect is independent of the condition. Select prompts by XML tag/parameters, Word, Regex, or Prompt tag, then choose The prompt, Last containing folder, or All containing folders. Alternatively use manual selection to check exact prompts and folders. Auto Filter does not offer Regex (list matched values).  Effect matching is recomputed against current active prompts each pass, respecting wand exclusions. A Prompt tag effect uses a full case-insensitive tag name. Folder targets use master mute/restore and can affect nonmatching siblings or higher ancestors. If a prompt stops matching an effect, the rule no longer controls it; that does not automatically undo its previous state.  Manually chosen prompts/folders exposes separate folder and prompt checklists. Check the rows that the rule should control."
+  },
+  {
+    "url": "auto-filter.html#actions",
+    "title": "Auto Filter · Enable/Disable & the opposite outcome",
+    "text": "    Rule action  Condition met  Condition not met      Enable  Enable current targets  Disable current targets    Disable  Disable current targets  Enable current targets     The false branch sets the opposite state. It does not restore an arbitrary previous state. Folder effects preserve individual intended states through master mute/restore, so enabling a folder does not force every child prompt on.  The Effect action chooses Enable when triggered or Disable when triggered. The opposite state applies when the condition no longer matches."
+  },
+  {
+    "url": "auto-filter.html#timing",
+    "title": "Auto Filter · When rules run",
+    "text": " Rules re-evaluate on supported chat changes such as sent, received, edited, deleted or swiped messages and chat switches. The default timing also applies after generation finishes or is aborted. This changes state for subsequent use; it cannot change a request already sent.  The optional  before-send waiting  setting applies after the user message is added and before the prompt is built, waiting for evaluation to finish. It can make sending slower for large scans. Use  Re-evaluate now  for an immediate manual pass. Without before-send waiting, sending still schedules a background evaluation but does not guarantee it finishes before that outgoing request. Event integration depends on the SillyTavern version.  The master Disable all filters switch is separate from the generation-finish/abort and before-sending trigger checkboxes."
+  },
+  {
+    "url": "auto-filter.html#order",
+    "title": "Auto Filter · Execution order & conflicting rules",
+    "text": " The numbered list is the execution order. Drag rules by their handles to change it. Enabled applicable rules run sequentially; when multiple rules affect the same prompt or folder, later writes win. This includes a rule’s not-triggered opposite action.  Groups organize and gate rules, but moving a rule into a group does not by itself change the numbered execution order. Prefer nonoverlapping effects when possible, or place the rule with final authority later.  The saved rule is numbered 1 and has a drag handle on its left. Rule order determines evaluation order."
+  },
+  {
+    "url": "auto-filter.html#manage",
+    "title": "Auto Filter · Edit, pause, delete & group rules",
+    "text": " Use a rule’s edit pencil to load it into the form, make changes, then  Update filter . Cancel edit abandons that edit. Each rule can be switched off or deleted. Remove all clears the rule collection after confirmation. New preset group, subgroup creation, rename, collapse and Move controls organize rules.  The master switch pauses all Auto Filter processing. A disabled rule or group is skipped. Pausing or deleting does  not undo effects already applied ; set prompt/folder states manually if you need a different state while paused. Re-enabling makes the rule eligible for the next evaluation.  A saved rule has an enabled checkbox, edit pencil, trash icon, export icon, and group selector. + Group adds organization."
+  },
+  {
+    "url": "auto-filter.html#exclusions",
+    "title": "Auto Filter · Auto Filter exclusions",
+    "text": " The wand control on prompt and folder rows excludes them from Auto Filter. A folder exclusion is inherited by descendants; manual effect selection also respects Auto Filter eligibility. The funnel is a separate exclusion for manual Filter and presets.  An exclusion is not an override against an enclosing folder’s master mute. If another eligible prompt causes that folder to be muted, excluded contents are still suppressed. Use per-prompt targets when only directly matched prompts should change.  The wand on the prompt row is the Auto Filter exclusion control; the funnel beside it controls manual filters separately."
+  },
+  {
+    "url": "auto-filter.html#transfer",
+    "title": "Auto Filter · Import & export rules",
+    "text": " Export a rule from its row or use Export all for its collection and groups. Choose Import — Append, Import — Replace matching, or Import — Clear and import before loading a file. These modes work like  manual preset transfers  and affect the Auto Filter collection, not prompt definitions.  Rule files carry criteria (including message depth), actions and group information, but not prompt definitions or assigned tags. Manually selected identifiers and folder paths must exist on the destination. Enabled imported rules may run when evaluation is scheduled; pause the master before import if you want to inspect them first, then enable and Re-evaluate now.  Auto Filter has an import-mode selector, Import, Export all, and a file icon for exporting one rule."
+  },
+  {
+    "url": "backups.html#export",
+    "title": "Import, export & removal · Export the full prompt list",
+    "text": " Open the toolbar Import/Export menu and choose  Export prompt list and folders… . Keep this JSON file as the broadest STPHE backup. It includes folder structure and assignments, ordering, intended/master states, exclusions, tags, saved Filter/Chat presets, Auto Filter rules and their groups, plus native prompt definitions/order when available from SillyTavern.  Open AI Response Configuration and Refresh before exporting so the active native list is available. This is an extension/prompt-list backup, not a backup of chats, characters, model credentials or all SillyTavern settings.  Import / Export opens this menu. Export prompt list and folders saves the combined structure and prompt data."
+  },
+  {
+    "url": "backups.html#scoped-export",
+    "title": "Import, export & removal · Export one prompt or folder",
+    "text": " Choose  Export this prompt  from a prompt’s ⋮ menu to save its definition, tags, relevant folder ancestry, intended state and native ordering information when available. Choose  Export this folder  from a folder’s menu for its subtree and corresponding prompt metadata. Ancestor paths are included to retain meaningful placement.  Use these focused files to share a scene or reusable prompt without exporting the whole active setup. To transfer a saved filter recipe, use that preset/rule’s own Export instead.  Export this folder in the folder menu limits the export to that branch. A prompt menu also offers Export this prompt."
+  },
+  {
+    "url": "backups.html#import-modes",
+    "title": "Import, export & removal · Choose a prompt-list import mode",
+    "text": " From the toolbar Import/Export menu, choose the import mode, select a JSON file, and review the confirmation before applying.     Mode  Existing matching items  Other existing items      Import — Append  Keep local versions; add new items  Keep    Import — Replace matching  Update from the file; add new items  Keep    Import — Clear and import  Build the active list and folder organization from the file  Unlist from this active list; reusable native definitions remain     Clear and import does not permanently delete all reusable prompt definitions or other native prompt lists. When a full backup includes filter collections, those included collections use the same mode. Collections absent from the file remain unchanged.  Files containing only older folder organization can restore that organization without supplying missing native prompt content. Review the confirmation: it tells you when no prompt list is included.  The three import entries are Append, Replace matching, and Clear and import. Choose the intended merge behavior before selecting a file."
+  },
+  {
+    "url": "backups.html#matching",
+    "title": "Import, export & removal · How matching & duplicates work",
+    "text": " Imports match a prompt/preset/rule by identifier first. If no identifier match exists, a unique trimmed, case-insensitive name is the fallback. A name match retains the local identifier and remaps relevant imported assignments, tags, order entries and manual effect references to it.  Append keeps matching local entries and their existing active metadata; Replace matching updates them. If several existing entries share the same fallback name, or multiple incoming entries resolve to the same destination, the import reports an ambiguity instead of guessing. Give the conflicting entries unique names or use a file with the intended identifiers, then retry.  The conflict dialog compares same-name prompts with different content and offers a resolution for each item."
+  },
+  {
+    "url": "backups.html#tags",
+    "title": "Import, export & removal · What happens to tags",
+    "text": " Full-list, folder and single-prompt STPHE exports include saved prompt tags. STPHE imports restore them with their prompt identifiers, including remapping when matching by name. A tag criterion in a saved preset/rule also survives its own export/import.  Append keeps tags on existing matching prompts. Replace matching uses imported tags when provided. An absent tag field in an older/native file does not erase existing tags; an explicitly exported empty tag list  []  can clear a matched prompt’s tags in replacement modes. Tags for unrelated reusable definitions are retained.  A preset/rule export contains its  tag query , not the tags assigned to your prompts. Export the prompt/list too when the recipient needs those assignments. SillyTavern’s native exporter does not include STPHE tags.  These Weather and High Fantasy labels are extension metadata. Include STPHE data in exports to preserve assigned tags."
+  },
+  {
+    "url": "backups.html#compatibility",
+    "title": "Import, export & removal · Native & older file compatibility",
+    "text": "    File / importer  Behavior      Current STPHE → STPHE  Restores supported prompts, tags and extension metadata using the selected mode.    Older flat STPHE / Prompt Folders → STPHE  Accepted; missing newer fields are handled without requiring tags. Supported legacy match criteria migrate.    Native SillyTavern v1 character/full prompt export → STPHE  Reads its wrapped native prompt data. Native full exports without an active order can add definitions as list items.    Current STPHE → native SillyTavern importer  The native-compatible version-1 character envelope supplies prompts/order; native import ignores extension-only metadata and follows native merge behavior.     Current STPHE files retain the historical top-level fields as well as a native-compatible  version: 1 ,  type: \"character\" ,  data  envelope. Use the STPHE importer when you need folders, tags, exclusions and rules restored.  Compatibility does not mean an older extension can understand new features: exporting again from a version that lacks tags may lose them. Unsupported versions or ambiguous files containing multiple active order lists are rejected. The verified native integration is SillyTavern 1.18.0; keep the original backup when moving between versions.  Use STPHE’s Import / Export menu for compatible folder backups and prompt lists; the menu exposes the supported merge modes."
+  },
+  {
+    "url": "backups.html#scoped-import",
+    "title": "Import, export & removal · Import append after a row",
+    "text": " A prompt or folder ⋮ menu offers  Import append after this prompt/folder . Use it to insert imported content beside that item in its parent, instead of using a whole-list toolbar import. It has its own placement/conflict workflow.  When conflicts are found, the dialog offers choices such as keeping the previous prompt, deleting the previous prompt, replacing while keeping the previous folder, replacing using the new folder, or keeping both. Read the displayed choice and confirmation carefully; these per-conflict choices are distinct from the toolbar’s three list-wide modes. A file with prompt definitions may also offer to restore missing prompts.  Import append after this prompt inserts imported items beside the current row. Folder menus provide corresponding folder-scoped insertion."
+  },
+  {
+    "url": "backups.html#preset-files",
+    "title": "Import, export & removal · Transfer preset & rule collections",
+    "text": " Filter presets, Chat filter presets and Auto Filter rules each have their own Import and Export all controls, plus individual row exports. An individual export includes necessary group ancestors. Collection import supports Append, Replace matching and Clear and import; matching uses ID then a unique name.  These files carry recipes and group settings,  not prompt definitions or assigned prompt tags . Content/tag criteria are portable when suitable prompts exist on the destination. Manual prompt IDs, scoped folder paths and manually selected folders need compatible destination data. Import the relevant prompt backup first if needed, then verify effects before running rules.  For Auto Filter, pause the master while reviewing an import if you do not want enabled imported rules to run yet. Global Auto Filter master/timing preferences are not part of an individual rule export.  Saved filter presets have their own Import and Export all controls above the group tree, separate from prompt-list backups."
+  },
+  {
+    "url": "backups.html#deletion",
+    "title": "Import, export & removal · Unlist versus permanent deletion",
+    "text": "  Remove from list (not permanent)  takes a prompt out of the active native list but keeps its reusable definition. You can use the native Prompt Manager’s insertion controls to add that definition again.  Delete prompt PERMANENTLY  deletes the reusable definition; this can affect other presets using its identifier.  Folder deletion offers three branches: delete structure only and move prompts up, delete structure and unlist contents, or delete structure and permanently delete contents. Deleting only a folder also removes its subfolder structure; contents are retained at the parent level. Export first if you want a recovery file.  The Delete submenu distinguishes Remove from list (not permanent) from Delete prompt PERMANENTLY."
+  },
+  {
+    "url": "backups.html#remove-all",
+    "title": "Import, export & removal · Remove all: choose the affected scope",
+    "text": " The toolbar Remove all menu distinguishes  folders only  (keep prompts and unfile them),  folders plus everything inside ,  prompts only  (keep folder structure), and  prompts and folders . Prompt-removal branches offer not-permanent and permanent variants with confirmation.  “Folders plus everything inside” affects filed contents; prompts already in Unfiled are not inside an ordinary folder. “Prompts only” and “prompts and folders” cover the active list. These choices are removal actions, not import modes or filter-collection deletion.  The toolbar’s Remove All menu separates prompt removal, folder removal, and combined operations. Review the choice before confirming."
+  },
+  {
+    "url": "troubleshooting.html#missing",
+    "title": "Troubleshooting · Panel or prompt list is missing",
+    "text": "  Check that exactly one STPHE/Prompt Folders copy is installed and enabled, then reload.  Use Show STPHE if the panel is minimized.  Select Chat Completion and open AI Response Configuration to initialize the native Prompt Manager.  Press Refresh, clear Search prompts, and expand collapsed folders.  Confirm you are viewing the expected native preset/active prompt list.   If a SillyTavern update changed integration behavior, report its version along with STPHE’s version. Basic organization does not require a working generation API connection.  Refresh is the first toolbar button. Use it after opening the native Prompt Manager to rescan the list."
+  },
+  {
+    "url": "troubleshooting.html#states",
+    "title": "Troubleshooting · A toggle looks on but the prompt is absent",
+    "text": " Check every containing folder for a master mute. Intended prompt states remain visible while an ancestor suppresses native activation. Preview contains native-enabled prompts only. A disabled child folder remains muted after restoring its parent.  Also inspect Auto Filter: a later evaluation or later rule can overwrite a manual change. Pause the master to diagnose this, remembering that pausing does not undo existing effects. Restore the relevant folder or set the desired prompt state explicitly.  Weather is muted while its child prompts retain different intended states. Inspect ancestor folder toggles when a prompt appears inactive."
+  },
+  {
+    "url": "troubleshooting.html#no-matches",
+    "title": "Troubleshooting · Filter finds no matches or too many",
+    "text": " Check scope, funnel exclusions and the chosen match type. Name search and content search are different. Tags must be saved and match a full tag name. Word is a substring; use regex word boundaries when needed. Regex expressions omit slash delimiters and are case-insensitive.  For XML, rescan the tag’s parameters after changing content, check attribute-name case, and make sure all selected attributes occur on the same tag instance. For Regex (list matched values), Apply again after edits and remember a specific value matches as a substring in cached content. Apply only finds results; Enable/Disable is a separate step.  Check Scope and Match by before applying a filter. A folder-scoped filter can only find prompts in that branch."
+  },
+  {
+    "url": "troubleshooting.html#automation",
+    "title": "Troubleshooting · Auto Filter behaves unexpectedly",
+    "text": " Check the master switch, rule switch, group switches, wand exclusions, recent-message depth and numbered order. Depth 0 is always true. A false condition applies the opposite action. A disabled/deleted rule leaves its last effects in place.  Use Re-evaluate now on a small test rule. If a keyword in the new user message must affect the same outgoing request, enable before-send waiting. Generation-finished evaluation affects later use. If an imported effect uses manual IDs or folder paths from another setup, confirm those targets actually exist.  Check Disable all filters and the two evaluation triggers first when automation does not run as expected."
+  },
+  {
+    "url": "troubleshooting.html#imports",
+    "title": "Troubleshooting · Import errors or missing metadata",
+    "text": " Check that the file is valid JSON from a supported native or STPHE export, and import it into the correct collection. An Auto Filter-only file is not a prompt-list backup. A prompt-list file containing multiple active order lists must be reduced to one supported export rather than guessed.  For duplicate-name errors, rename ambiguous local items or export the intended identifiers. For missing tags/folders, check whether the file passed through the native importer/exporter or an older extension that cannot preserve those fields. Preset files store tag criteria, not assigned tags. Review the selected mode: Append deliberately keeps matching local entries.  Confirm which import mode you used: Append, Replace matching, or Clear and import can produce different outcomes."
+  },
+  {
+    "url": "troubleshooting.html#performance",
+    "title": "Troubleshooting · Slow scans, busy state & content previews",
+    "text": " Large lists can take time to scan or preview. STPHE reads native content directly when available and may briefly open the native editor as a fallback. Let the current operation finish rather than repeatedly clicking. Limit manual scope to a folder when appropriate.  Before-send waiting adds evaluation to the send path. Token estimates use approximately four characters per token and may differ greatly from SillyTavern’s tokenizer. Preview is stored prompt content, not a fully expanded API payload. Check native counts and request inspection for generation-specific details.  Name search narrows the visible hierarchy. Use a focused view like this when inspecting a large prompt list."
+  },
+  {
+    "url": "troubleshooting.html#report",
+    "title": "Troubleshooting · Report a reproducible problem",
+    "text": " Include STPHE and SillyTavern versions, the exact control you used, expected and actual results, the selected match/target/import mode, and a minimal fictional example. For automation, include depth, action, effect and rule order. For a UI issue, show the relevant controls rather than the whole conversation.  Share a small export only after checking it for private prompt text and metadata. A useful report might say: “Word rain matches rainfall; I expected a whole word” — the guide can then point to the correct regex, or a reproducible bug can be fixed.  Example of a focused diagnostic capture: the panel shows its status, folder hierarchy, and prompt states without including the chat."
+  },
+  {
+    "url": "credits.html",
+    "title": "Credits & donations",
+    "text": " STPHE / Credits & donations  Support STPHE.  Author:  miputra   Made with  Made with Claude 4.6 Sonnet, ChatGPT 5.6 Sol, and ChatGPT 6 ASTRA.  AI development disclaimer  This was originally intended as a personal project, but I decided to make it public. I don't understand this project's code, and JavaScript is not a language I know; I only know C# and Python.  I have added comments throughout the code to make development easier, whether for manual fixes or as notes for AI tools working on the project. I hope this helps.  Support the project   If you like the project, you can also buy me a coffee.  Optional donations support miputra’s work on STPHE. Use the network shown for each address.   Trakteer  Support miputra on Trakteer    BEP-20  0xE122d7d44604d59b27Ca3FAA44Fc1Da94CE0aE03  Copy address    Solana  C8A5J9w7UkXeLVeCWhpP47SPCPvnuS55RJWybzFhB3jF  Copy address      Project relationship  STPHE is an extension for SillyTavern. These documentation pages and donations belong to this extension project, not the SillyTavern team.  Documentation inspiration  The guide-oriented navigation is inspired by  SillyTavern’s documentation . The writing, styling, and extension screenshots here are specific to STPHE.   ← Troubleshooting     STPHE · Author: miputra ·  Credits & donations  "
+  }
+]
