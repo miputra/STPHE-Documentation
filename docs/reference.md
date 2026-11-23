@@ -21,6 +21,16 @@ The `docs/` directory contains the complete static documentation website: naviga
 
 ---
 
+## Folder tags, preset group actions, reordering & group exports
+
+- **Folder tags (`folderTags`):** Named folders now support multiple tags via a tag button on each folder row and **Edit tags…** in the folder’s ⋮ menu. Folder tags trim and deduplicate case-insensitively, follow folder rename/move/delete, and round-trip through full exports, folder exports, append-after path remapping, and all prompt-list import modes.
+- **Tag (prompt / folder) matching:** Tag filters in Manual Filter, Filter presets, Chat filter effects, and Auto Filter effects match both tagged prompts and tagged folders without scanning prompt content, respecting scope and independent manual/auto exclusions.
+- **Direct toggle of all matched targets:** Every matched prompt and folder is enabled or disabled when a filter runs—even when a parent folder is disabled.
+- **Preset group Enable/Disable actions:** Every Filter preset group and Chat filter preset group header now includes **Enable** and **Disable** toggles right beside its **On/Off** switch to run all unlocked, enabled presets inside that group (and its subgroups) in top-to-bottom visual order.
+- **Drag-and-drop filter and group reordering:** Filter presets, Chat filter presets, and Auto Filter rules all support unified drag-and-drop reordering (within and across groups) as well as group reordering (before/into/after), with top-to-bottom visual order determining execution priority. Also fixed a settings-read array cloning issue that prevented dropped filter order from persisting.
+- **Group-level filter exports:** Replaced per-row export buttons on individual filters with an **Export** button on each filter group header that exports the group’s filters (including subgroups) and ancestor/subgroup folder hierarchy.
+- Validation: **71 local regression tests** passing in `STPHE/tests/regression.test.mjs`.
+
 ## Documentation expansion — 2026-10-09
 
 Extension version remains **3.4.0** (documentation-only update). The website now covers 71 feature topics with focused application screenshots in every section, separate [Manual Filter](filters.html) and [Prompts & tags](prompts.html) guides, an [all-features directory](index.html#features), and section-level search. Existing section links are retained.

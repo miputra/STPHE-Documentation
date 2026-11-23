@@ -23,10 +23,10 @@ Edit `guide-content.json`, then run `python scripts/build-docs.py`. Run `python 
 | Move & reorder with drag and drop | `src/folders.js; src/render.js; src/dnd.js` | [Folders & ordering](./folders.html#move) | [Screenshot](./assets/screen-prompt-controls.png) |
 | Move several items together | `src/folders.js; src/render.js; src/dnd.js` | [Folders & ordering](./folders.html#multi-select) | [Screenshot](./assets/screen-selection.png) |
 | Protect prompts from filters | `src/folders.js; src/render.js; src/dnd.js` | [Folders & ordering](./folders.html#exclusions) | [Screenshot](./assets/screen-prompt-controls.png) |
-| Folder menu, export & deletion | `src/folders.js; src/render.js; src/dnd.js` | [Folders & ordering](./folders.html#actions) | [Screenshot](./assets/screen-folder-menu.png) |
+| Folder menu, tags, export & deletion | `src/folders.js; src/render.js; src/dnd.js` | [Folders & ordering](./folders.html#actions) | [Screenshot](./assets/screen-folder-menu.png) |
 | Create & insert prompts | `src/native.js; src/prompt-tags.js; src/render.js` | [Prompts & tags](./prompts.html#create) | [Screenshot](./assets/screen-prompt-menu.png) |
 | Edit, rename & enable | `src/native.js; src/prompt-tags.js; src/render.js` | [Prompts & tags](./prompts.html#edit) | [Screenshot](./assets/screen-editor.png) |
-| Add & remove multiple tags | `src/native.js; src/prompt-tags.js; src/render.js` | [Prompts & tags](./prompts.html#tags) | [Screenshot](./assets/prompt-tags-editor.png) |
+| Add & remove multiple tags (prompts & folders) | `src/native.js; src/prompt-tags.js; src/render.js` | [Prompts & tags](./prompts.html#tags) | [Screenshot](./assets/prompt-tags-editor.png) |
 | Use tags to filter & automate | `src/native.js; src/prompt-tags.js; src/render.js` | [Prompts & tags](./prompts.html#tag-workflows) | [Screenshot](./assets/screen-filter-tag.png) |
 | View content & tags read-only | `src/native.js; src/prompt-tags.js; src/render.js` | [Prompts & tags](./prompts.html#view) | [Screenshot](./assets/screen-prompt-view.png) |
 | Preview all enabled prompts | `src/native.js; src/prompt-tags.js; src/render.js` | [Prompts & tags](./prompts.html#preview) | [Screenshot](./assets/screen-preview.png) |
@@ -37,7 +37,7 @@ Edit `guide-content.json`, then run `python scripts/build-docs.py`. Run `python 
 | Regex matching | `src/bulk-match.js; src/auto-filter.js; src/prompt-tags.js` | [Manual Filter](./filters.html#regex) | [Screenshot](./assets/screen-filter-regex.png) |
 | XML tags & parameters | `src/bulk-match.js; src/auto-filter.js; src/prompt-tags.js` | [Manual Filter](./filters.html#xml) | [Screenshot](./assets/screen-filter-xml.png) |
 | Regex: list matched values | `src/bulk-match.js; src/auto-filter.js; src/prompt-tags.js` | [Manual Filter](./filters.html#regex-values) | [Screenshot](./assets/screen-filter-regexValues.png) |
-| Prompt tag matching | `src/bulk-match.js; src/auto-filter.js; src/prompt-tags.js` | [Manual Filter](./filters.html#tags) | [Screenshot](./assets/screen-filter-tag.png) |
+| Prompt & folder tag matching | `src/bulk-match.js; src/auto-filter.js; src/prompt-tags.js` | [Manual Filter](./filters.html#tags) | [Screenshot](./assets/screen-filter-tag.png) |
 | Prompt & containing-folder targets | `src/bulk-match.js; src/auto-filter.js; src/prompt-tags.js` | [Manual Filter](./filters.html#targets) | [Screenshot](./assets/screen-filter-tag.png) |
 | Manual filter exclusions | `src/bulk-match.js; src/auto-filter.js; src/prompt-tags.js` | [Manual Filter](./filters.html#exclusions) | [Screenshot](./assets/screen-prompt-controls.png) |
 | Check recent chat manually | `src/bulk-match.js; src/auto-filter.js; src/prompt-tags.js` | [Manual Filter](./filters.html#chat) | [Screenshot](./assets/screen-chat-filter.png) |
@@ -47,8 +47,8 @@ Edit `guide-content.json`, then run `python scripts/build-docs.py`. Run `python 
 | Save & run a preset | `src/bulk-match.js; src/filter-groups.js; src/preset-import-export.js` | [Filter presets](./presets.html#save) | [Screenshot](./assets/screen-presets.png) |
 | Content presets & Chat presets | `src/bulk-match.js; src/filter-groups.js; src/preset-import-export.js` | [Filter presets](./presets.html#chat-presets) | [Screenshot](./assets/screen-chat-presets.png) |
 | Locks & group switches | `src/bulk-match.js; src/filter-groups.js; src/preset-import-export.js` | [Filter presets](./presets.html#locks) | [Screenshot](./assets/screen-presets.png) |
-| Create, nest & manage groups | `src/bulk-match.js; src/filter-groups.js; src/preset-import-export.js` | [Filter presets](./presets.html#groups) | [Screenshot](./assets/screen-presets.png) |
-| Export one preset or import a collection | `src/bulk-match.js; src/filter-groups.js; src/preset-import-export.js` | [Filter presets](./presets.html#transfer) | [Screenshot](./assets/screen-presets.png) |
+| Create, nest, reorder & run groups | `src/bulk-match.js; src/filter-groups.js; src/preset-import-export.js` | [Filter presets](./presets.html#groups) | [Screenshot](./assets/screen-presets.png) |
+| Export a group or import a collection | `src/bulk-match.js; src/filter-groups.js; src/preset-import-export.js` | [Filter presets](./presets.html#transfer) | [Screenshot](./assets/screen-presets.png) |
 | Remove presets without removing prompts | `src/bulk-match.js; src/filter-groups.js; src/preset-import-export.js` | [Filter presets](./presets.html#delete) | [Screenshot](./assets/screen-presets.png) |
 | Create your first rule | `src/auto-filter.js; src/filter-groups.js; src/bulk-match.js` | [Auto Filter](./auto-filter.html#first-rule) | [Screenshot](./assets/screen-auto-rule.png) |
 | Conditions & message depth | `src/auto-filter.js; src/filter-groups.js; src/bulk-match.js` | [Auto Filter](./auto-filter.html#conditions) | [Screenshot](./assets/screen-auto-rule.png) |
