@@ -23,6 +23,7 @@ Edit `guide-content.json`, then run `python scripts/build-docs.py`. Run `python 
 | Move & reorder with drag and drop | `src/folders.js; src/render.js; src/dnd.js` | [Folders & ordering](./folders.html#move) | [Screenshot](./assets/screen-prompt-controls.png) |
 | Move several items together | `src/folders.js; src/render.js; src/dnd.js` | [Folders & ordering](./folders.html#multi-select) | [Screenshot](./assets/screen-selection.png) |
 | Protect prompts from filters | `src/folders.js; src/render.js; src/dnd.js` | [Folders & ordering](./folders.html#exclusions) | [Screenshot](./assets/screen-prompt-controls.png) |
+| Add & edit folder tags | `src/folders.js; src/render.js; src/dnd.js` | [Folders & ordering](./folders.html#folder-tags) | [Screenshot](./assets/screen-folder-tags.png) |
 | Folder menu, tags, export & deletion | `src/folders.js; src/render.js; src/dnd.js` | [Folders & ordering](./folders.html#actions) | [Screenshot](./assets/screen-folder-menu.png) |
 | Create & insert prompts | `src/native.js; src/prompt-tags.js; src/render.js` | [Prompts & tags](./prompts.html#create) | [Screenshot](./assets/screen-prompt-menu.png) |
 | Edit, rename & enable | `src/native.js; src/prompt-tags.js; src/render.js` | [Prompts & tags](./prompts.html#edit) | [Screenshot](./assets/screen-editor.png) |

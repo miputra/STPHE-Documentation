@@ -80,8 +80,8 @@
         "screenshot": [
           "screen-folder-menu.png",
           "Open a folder’s More actions menu to create a subfolder or a new prompt inside that folder.",
-          250,
-          340
+          275,
+          373
         ]
       },
       {
@@ -215,14 +215,25 @@
         ]
       },
       {
+        "id": "folder-tags",
+        "title": "Add & edit folder tags",
+        "body": "<p>Click the tag icon on any named folder row—or choose <strong>Edit tags…</strong> in its ⋮ menu—to open the <strong>Folder tags</strong> modal. Type a tag and press <strong>Enter</strong> to add a chip, click <strong>×</strong> on a chip to remove it, and click <strong>Save</strong> (which also commits any typed tag left in the input). Cancel or × discards unsaved edits.</p><p>Folders carrying tags highlight their tag icon and list their assigned tags on hover. Folder tags are matched alongside prompt tags whenever you use <strong>Tag (prompt / folder)</strong> in Manual Filter, Filter presets, Chat filter effects, or Auto Filter. They follow folder rename, move, and delete operations and are preserved in full and folder backups.</p>",
+        "screenshot": [
+          "screen-folder-tags.png",
+          "The Folder tags modal for Story/Weather displays Weather and Atmosphere chips. Press Enter for each tag, × removes one, and Save commits changes.",
+          440,
+          304
+        ]
+      },
+      {
         "id": "actions",
         "title": "Folder menu, tags, export & deletion",
-        "body": "<p>Every named folder row has a tag button (highlighted with a tooltip listing its tags when present), and its ⋮ menu also provides <strong>Edit tags…</strong>, <strong>Filter this folder by content or tag…</strong>, <strong>Export this folder</strong>, <strong>Import append after this folder</strong>, and deletion choices. Scoped matching starts from that folder’s subtree. Folder tags follow rename, move, and delete operations and are included in full and folder backups.</p><p><strong>Delete folder only</strong> removes that folder and its subfolders while moving their prompts up one level. The other choices remove contained prompts from the active list, or permanently delete them. See <a href=\"prompts.html#tags\">prompt &amp; folder tags</a>, <a href=\"backups.html#scoped-import\">scoped imports</a>, and <a href=\"backups.html#deletion\">deletion semantics</a>.</p>",
+        "body": "<p>Every named folder row has a tag button (highlighted with a tooltip listing its tags when present), and its ⋮ menu also provides <strong>Edit tags…</strong>, <strong>Filter this folder by content or tag…</strong>, <strong>Export this folder</strong>, <strong>Import append after this folder</strong>, and deletion choices. Scoped matching starts from that folder’s subtree. Folder tags follow rename, move, and delete operations and are included in full and folder backups.</p><p><strong>Delete folder only</strong> removes that folder and its subfolders while moving their prompts up one level. The other choices remove contained prompts from the active list, or permanently delete them. See <a href=\"folders.html#folder-tags\">folder tags</a>, <a href=\"backups.html#scoped-import\">scoped imports</a>, and <a href=\"backups.html#deletion\">deletion semantics</a>.</p>",
         "screenshot": [
           "screen-folder-menu.png",
-          "A named folder’s More actions menu exposes rename, creation, scoped filtering, import, export, and removal actions.",
-          250,
-          340
+          "A named folder’s More actions menu exposes Filter this folder by content or tag, Rename folder, Edit tags, Export, insertion, Import append, and Delete.",
+          275,
+          373
         ]
       }
     ],
@@ -280,7 +291,7 @@
         "body": "<p>Open Filter, choose <strong>Tag (prompt / folder)</strong>, enter a full tag name and click Apply. Matching is exact and case-insensitive, finds both tagged prompts and tagged folders without scanning prompt content, and respects scope and exclusions. Select a target and Enable/Disable, or save a preset. In Auto Filter, use <strong>Tag (prompt / folder)</strong> in the <strong>effect</strong> to choose which prompts and folders a chat condition controls. Every matched prompt and folder is enabled or disabled even if a parent folder is disabled.</p><p>One tag criterion is entered at a time; there is no multi-tag AND/OR builder. The panel’s name search does not search tags. Use <a href=\"backups.html#tags\">STPHE exports</a> to preserve assigned prompt and folder tags; native-only exports do not include them.</p>",
         "screenshot": [
           "screen-filter-tag.png",
-          "Prompt tag is set to Weather. Apply finds two matching prompts; the target and Enable/Disable controls determine what changes.",
+          "Tag (prompt / folder) is set to Weather. Apply finds 2 prompts and 1 folder matching that tag; choose a target and Enable/Disable to change them.",
           440,
           563
         ]
@@ -379,7 +390,7 @@
           "screen-filter-xml.png",
           "XML tag weather has been scanned. The Parameters area lists discovered attributes; check an attribute and choose a value to narrow the match.",
           440,
-          716
+          715
         ]
       },
       {
@@ -390,7 +401,7 @@
           "screen-filter-regexValues.png",
           "Regex (list matched values) extracts weather types. The value selector and adjacent eye let you choose or inspect an extracted value.",
           440,
-          642
+          641
         ]
       },
       {
@@ -399,7 +410,7 @@
         "body": "<p>Choose <strong>Tag (prompt / folder)</strong> and enter one complete tag name. Leading/trailing whitespace is removed and case is ignored. <code>Fantasy</code> matches a Fantasy tag on prompts or folders, but not High Fantasy. It matches saved STPHE tag metadata without scanning prompt content, not XML or words inside content.</p><p>A prompt or folder can have multiple tags; matching any one equal to the query is sufficient. Every matched prompt and folder is enabled or disabled even when a parent folder is disabled. This criterion has no multi-tag AND/OR input. Add or remove tags through the <a href=\"prompts.html#tags\">native prompt editor or folder tag modal</a>, save, then apply again.</p>",
         "screenshot": [
           "screen-filter-tag.png",
-          "Prompt tag Weather matches the two prompts carrying that label. This field searches assigned metadata, not XML inside the prompt.",
+          "Tag (prompt / folder) Weather matches 2 prompts and 1 tagged folder (Story/Weather) without scanning prompt content.",
           440,
           563
         ]
@@ -410,7 +421,7 @@
         "body": "<table><thead><tr><th>Target</th><th>What changes</th></tr></thead><tbody><tr><td>The prompt / folder</td><td>The individual intended state of each matched prompt and the master mute/restore state of each matched tagged folder.</td></tr><tr><td>Last containing folder</td><td>Each matched folder itself and each matched prompt’s immediate containing folder master state.</td></tr><tr><td>All containing folders</td><td>Each matched folder (and its ancestors) and every containing ancestor folder of each matched prompt.</td></tr></tbody></table><p>Every matched prompt and folder is enabled or disabled even when a parent folder is disabled. Folder actions affect all their descendants, including nonmatches and excluded siblings. They use master mute/restore, not Force Enable/Disable ALL; enabling a folder preserves individual off states. Enabling a prompt or its immediate folder cannot bypass a different muted ancestor natively.</p><p>Choose one item from Matched prompts / folders to act on its target only, or All matched for the whole result set. Repeated folder targets are consolidated.</p>",
         "screenshot": [
           "screen-filter-tag.png",
-          "Below Matched prompts, choose The prompt, Last containing folder, or All containing folders before clicking Enable or Disable.",
+          "Below Matched prompts / folders, choose The prompt / folder, Last containing folder, or All containing folders before clicking Enable or Disable.",
           440,
           563
         ]
@@ -434,7 +445,7 @@
           "screen-chat-filter.png",
           "Match against is Chat. Enter the condition and recent-message depth, then use Check chat to evaluate it.",
           440,
-          484
+          482
         ]
       },
       {
@@ -445,7 +456,7 @@
           "screen-chat-xml.png",
           "In Chat mode, XML tag is the condition type and location is the tag name. Chat depth limits the messages checked.",
           440,
-          496
+          404
         ]
       },
       {
@@ -467,7 +478,7 @@
           "screen-presets.png",
           "Save current match as a filter preset stores the current configuration. Saved presets appear in the group tree below.",
           410,
-          502
+          659
         ]
       }
     ],
@@ -487,7 +498,7 @@
           "screen-presets.png",
           "Enter a preset name and Save above the preset tree. Each saved row provides its drag handle, lock, enable/disable, delete, and group controls.",
           410,
-          502
+          659
         ]
       },
       {
@@ -498,7 +509,7 @@
           "screen-chat-presets.png",
           "Chat mode has its own Save current chat condition + selection as a preset area and separate import/export and group controls.",
           410,
-          419
+          555
         ]
       },
       {
@@ -509,7 +520,7 @@
           "screen-presets.png",
           "The lock checkbox is per preset. The On button belongs to its group and gates the group without changing individual locks.",
           410,
-          502
+          659
         ]
       },
       {
@@ -520,7 +531,7 @@
           "screen-presets.png",
           "Scenes contains the Weather subgroup. Group rows have On/Off, Enable/Disable, new subgroup, rename, export, move, and delete controls.",
           410,
-          502
+          659
         ]
       },
       {
@@ -531,7 +542,7 @@
           "screen-presets.png",
           "Above the preset groups, select an import mode, use Import, or Export all. Each group header provides a group export button.",
           410,
-          502
+          659
         ]
       },
       {
@@ -542,7 +553,7 @@
           "screen-presets.png",
           "Each preset has a trash icon; each group has × at the right. Check which row you are removing before using these controls.",
           410,
-          502
+          659
         ]
       }
     ],
@@ -632,9 +643,9 @@
         "body": "<p>The numbered list matches the exact <strong>top-to-bottom visual order</strong> across groups and Unfiled. Drag rules by their handles onto another rule’s top/bottom half (including across groups) or drag group headers to change priority. Enabled applicable rules run sequentially from top to bottom; when multiple rules affect the same prompt or folder, later writes win. This includes a rule’s not-triggered opposite action.</p><p>Reordering groups or moving a rule into a higher/lower group immediately updates its numbered top-to-bottom execution priority. Prefer nonoverlapping effects when possible, or place the rule with final authority lower in the list.</p>",
         "screenshot": [
           "screen-auto-list.png",
-          "The saved rule is numbered 1 and has a drag handle on its left. Visual top-to-bottom order determines evaluation order.",
+          "Saved rules are numbered 1 and 2 from top to bottom across groups and Unfiled, with drag handles to change visual execution order.",
           530,
-          201
+          302
         ]
       },
       {
@@ -645,7 +656,7 @@
           "screen-auto-list.png",
           "A saved rule has a drag handle, enabled checkbox, edit pencil, trash icon, and group selector. Group headers provide On/Off, subgroup, rename, export, move, and delete controls.",
           530,
-          201
+          302
         ]
       },
       {
@@ -667,7 +678,7 @@
           "screen-auto-list.png",
           "Auto Filter has an import-mode selector, Import, Export all, and a group export button on each group header.",
           530,
-          201
+          302
         ]
       }
     ],
@@ -702,8 +713,8 @@
         "screenshot": [
           "screen-folder-menu.png",
           "Export this folder in the folder menu limits the export to that branch. A prompt menu also offers Export this prompt.",
-          250,
-          340
+          275,
+          373
         ]
       },
       {
@@ -769,7 +780,7 @@
           "screen-presets.png",
           "Saved filter presets have their own Import and Export all controls above the group tree, separate from prompt-list backups.",
           410,
-          502
+          659
         ]
       },
       {

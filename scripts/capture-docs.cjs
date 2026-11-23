@@ -5,7 +5,11 @@ const path = require('node:path');
 const fs = require('node:fs');
 fs.mkdirSync(path.join(__dirname, '../tests/evidence'), {recursive:true});
 const base = process.env.ST_URL || 'http://localhost:8000';
-const extension = '/scripts/extensions/third-party/prompt-folders/src/';
+const extensionCandidates = [
+ process.env.STPHE_EXT_PATH,
+ '/scripts/extensions/third-party/STPHE/src/',
+ '/scripts/extensions/third-party/prompt-folders/src/',
+].filter(Boolean);
 (async () => {
  const browser = await chromium.launch({headless:true, channel:'msedge'});
  const page = await browser.newPage({viewport:{width:1440,height:1500}, deviceScaleFactor:1});
@@ -18,6 +22,13 @@ const extension = '/scripts/extensions/third-party/prompt-folders/src/';
  // SillyTavern's headless root can collapse to zero height, clipping fixed dialogs.
  await page.addStyleTag({content:'html { height: 100%; }'}); await page.locator('#pf-tree .pf-prompt-row').first().waitFor({timeout:15000}).catch(()=>{});
  await page.waitForTimeout(2000);
+ const extension = await page.evaluate(async candidates => {
+  for (const prefix of candidates) {
+   try { await import(prefix + 'state.js'); return prefix; } catch {}
+  }
+  throw new Error('Could not locate STPHE extension modules under ' + candidates.join(', '));
+ }, extensionCandidates);
+ console.log('Using extension path:', extension);
  await page.evaluate(async prefix => {
   const state=await import(prefix+'state.js'), native=await import(prefix+'native.js');
   const mod=await native.getOaiModule();
@@ -25,9 +36,22 @@ const extension = '/scripts/extensions/third-party/prompt-folders/src/';
   mod.oai_settings.prompts=sample.map(([identifier,name,content])=>({identifier,name,content,role:'system',system_prompt:false,marker:false,injection_position:0,injection_depth:4,injection_order:100,forbid_overrides:false}));
   for(const entry of mod.oai_settings.prompt_order) entry.order=sample.map(([identifier])=>({identifier,enabled:identifier!=='thunder'}));
   const s=state.settings();
-  Object.assign(s,{folders:['Story','Story/Weather'],assignments:{rain:'Story/Weather',thunder:'Story/Weather',tavern:'Story'},order:{},collapsed:{},folderDisabled:{},folderSnapshot:{},promptDesired:{},excludedPrompts:{},excludedFolders:{},excludedAutoPrompts:{},excludedAutoFolders:{},promptTags:{rain:['Weather','Atmosphere'],tavern:['Location'],thunder:['Weather']},autoFilters:[],matchPresets:[],chatMatchPresets:[],filterGroups:{}});
-  s.matchPresets=[{id:'weather',name:'Weather prompts',locked:false,scopePath:null,params:{type:'tag',text:'Weather'},target:'prompt',group:'Scenes/Weather'},{id:'tavern',name:'Tavern prompts',locked:true,scopePath:null,params:{type:'word',text:'tavern'},target:'prompt',group:'Scenes'}];
+  Object.assign(s,{folders:['Story','Story/Weather'],folderTags:{Story:['Scene'],'Story/Weather':['Weather','Atmosphere']},assignments:{rain:'Story/Weather',thunder:'Story/Weather',tavern:'Story'},order:{},collapsed:{},folderDisabled:{},folderSnapshot:{},promptDesired:{},excludedPrompts:{},excludedFolders:{},excludedAutoPrompts:{},excludedAutoFolders:{},promptTags:{rain:['Weather','Atmosphere'],tavern:['Location'],thunder:['Weather']},autoFilters:[],matchPresets:[],chatMatchPresets:[],filterGroups:{}});
+  s.matchPresets=[
+   {id:'weather',name:'Weather tags',locked:false,scopePath:null,params:{type:'tag',text:'Weather'},target:'prompt',group:'Scenes/Weather'},
+   {id:'rain',name:'Rain ambience',locked:false,scopePath:null,params:{type:'word',text:'rain'},target:'prompt',group:'Scenes/Weather'},
+   {id:'tavern',name:'Tavern prompts',locked:true,scopePath:null,params:{type:'word',text:'tavern'},target:'prompt',group:'Scenes'}
+  ];
   s.filterGroups.matchPresets={folders:['Scenes','Scenes/Weather'],collapsed:{},disabled:{}};
+  s.chatMatchPresets=[
+   {id:'chat-weather',name:'Weather in chat',locked:false,scopePath:null,condition:{matchType:'word',value:'rain',depth:3},effect:{mode:'match',selMode:'tag',text:'Weather',target:'prompt'},group:'Chat scenes'},
+   {id:'chat-tavern',name:'Tavern manual',locked:true,scopePath:null,condition:{matchType:'word',value:'tavern',depth:4},effect:{mode:'manual',manualPrompts:['tavern'],manualFolders:['Story']},group:'Chat scenes'}
+  ];
+  s.filterGroups.chatMatchPresets={folders:['Chat scenes'],collapsed:{},disabled:{}};
+  s.autoFilters=[
+   {id:'af-weather',name:'Weather scene',enabled:true,action:'enable',group:'Scenes',condition:{matchType:'word',value:'rain',depth:3},effect:{mode:'match',matchType:'tag',text:'Weather',target:'prompt'}}
+  ];
+  s.filterGroups.autoFilters={folders:['Scenes'],collapsed:{},disabled:{}};
   await native.forceNativeRerender();
   (await import(prefix+'render.js')).renderTree();
   Object.assign(document.querySelector('#pf-dock').style,{width:'720px',height:'470px',top:'30px'});
@@ -52,6 +76,7 @@ const extension = '/scripts/extensions/third-party/prompt-folders/src/';
  await page.locator('#pf-tree .pf-prompt-row [title="More actions"]').first().click(); await shot('screen-prompt-menu','.pf-context-menu');
  await page.locator('.pf-context-item').filter({hasText:/Delete/}).click();await shot('screen-delete','.pf-context-menu:last-child');await close();
  await page.locator('#pf-tree .pf-folder-row [title="More actions"]').last().click(); await shot('screen-folder-menu','.pf-context-menu'); await close();
+ await page.evaluate(async p=>(await import(p+'prompt-tags.js')).openFolderTagsModal('Story/Weather'),extension); await page.waitForTimeout(200); await shot('screen-folder-tags','#pf-folder-tags-overlay .pf-view-modal'); await close();
  await page.locator('#pf-import-export').click(); await shot('screen-transfer-menu','.pf-context-menu'); await close();
  await page.locator('#pf-remove-all').click(); await shot('screen-remove-all','.pf-context-menu'); await close();
  await page.setViewportSize({width:800,height:500});await page.waitForTimeout(300);await page.evaluate(async p=>(await import(p+'native.js')).viewPrompt('rain','Rain ambience'),extension);await shot('screen-prompt-view','.pf-prompt-view-modal');await page.setViewportSize({width:1440,height:1500}); await close();
@@ -70,7 +95,7 @@ const extension = '/scripts/extensions/third-party/prompt-folders/src/';
  await page.locator('#pf-af-cond-type').selectOption('word');await page.locator('#pf-af-cond-text').fill('tavern');await page.locator('#pf-af-cond-depth').fill('4');await page.locator('#pf-af-name').fill('Tavern atmosphere');
  await page.locator('#pf-af-eff-type').selectOption('tag');await page.locator('#pf-af-eff-text').fill('Atmosphere');
  await shot('screen-auto-rule','#pf-af-overlay .pf-view-modal','#pf-af-hint');
- await page.evaluate(async p=>{(await import(p+'state.js')).settings().autoFilterDisabled=true},extension);await page.locator('#pf-af-submit').click();await shot('screen-auto-list','#pf-af-list');
+ await page.evaluate(async p=>{(await import(p+'state.js')).settings().autoFilterDisabled=true},extension);await page.locator('#pf-af-submit').click();await page.evaluate(()=>{const l=document.querySelector('#pf-af-list');if(l)l.style.maxHeight='none';});await shot('screen-auto-list','#pf-af-list');
  await close();await page.locator('#pf-auto-filter').click();
  await page.locator('#pf-af-eff-mode').selectOption('manual');await shot('screen-auto-manual','#pf-af-eff-manual-block');
  await page.locator('#pf-af-cond-type').selectOption('xml');await page.locator('#pf-af-cond-xml-block .pf-xp-tag').fill('location');await shot('screen-auto-xml','#pf-af-overlay .pf-view-modal','#pf-af-cond-depth');
@@ -81,6 +106,7 @@ const extension = '/scripts/extensions/third-party/prompt-folders/src/';
  await page.locator('#completion_prompt_manager_popup_entry_form_close').click();
  await page.evaluate(async p=>(await import(p+'import-export.js')).restorePromptsFromImport({prompts:[{identifier:'rain-imported',name:'Rain ambience',content:'Describe heavy rain outside the tavern.',role:'system'}],prompt_order:[]}),extension);
  await shot('screen-conflicts','#pf-ic-overlay .pf-view-modal');await page.locator('#pf-ic-close').click();
+ await page.locator('#pf-minimize').click();
  await page.locator('#extensions-settings-button .drawer-icon').click();await page.locator('#third_party_extension_button').click();
  await shot('screen-install','dialog[open]');
  fs.writeFileSync(path.join(__dirname,'../tests/evidence/capture-manifest.json'),JSON.stringify(shots,null,2));
