@@ -85,6 +85,12 @@ const extensionCandidates = [
  for (const [type,value] of [['word','rain'],['regex','rain|thunder'],['regexValues','type="([^"]+)"'],['tag','Weather']]){
   await page.locator('#pf-bm-type').selectOption(type); await page.locator('#pf-bm-text').fill(value); await page.locator('#pf-bm-apply').click(); await page.waitForTimeout(250); await shot('screen-filter-'+type,'.pf-bm-modal','#pf-bm-hint');
  }
+ await page.locator('#pf-bm-text').fill('');
+ await page.locator('#pf-bm-text').type('e');
+ await page.waitForTimeout(200);
+ await shot('screen-filter-tag-autocomplete','.pf-bm-modal','#pf-tag-autocomplete');
+ await page.locator('#pf-bm-text').press('Escape');
+ await page.waitForTimeout(100);
  await page.locator('#pf-bm-type').selectOption('xml'); await page.locator('#pf-bm-xml-block .pf-xp-tag').fill('weather');await page.locator('#pf-bm-xml-block .pf-xp-scan').click();
  await page.locator('#pf-bm-apply').click();await shot('screen-filter-xml','.pf-bm-modal','#pf-bm-hint');
  await shot('screen-presets','#pf-bm-preset-block');

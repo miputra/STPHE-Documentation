@@ -1,6 +1,6 @@
 # Feature documentation coverage
 
-Audited against the v3.6.0 source on 2026-11-23. Every guide section includes a focused screenshot of the relevant application controls. Screenshots use temporary sample data; captions identify the controls to inspect.
+Audited against the v3.7.0 source on 2026-11-23. Every guide section includes a focused screenshot of the relevant application controls. Screenshots use temporary sample data; captions identify the controls to inspect.
 
 Edit `guide-content.json`, then run `python scripts/build-docs.py`. Run `python scripts/check-docs.py` to validate local links, anchors, images, coverage, and search entries.
 
@@ -38,7 +38,7 @@ Edit `guide-content.json`, then run `python scripts/build-docs.py`. Run `python 
 | Regex matching | `src/bulk-match.js; src/auto-filter.js; src/prompt-tags.js` | [Manual Filter](./filters.html#regex) | [Screenshot](./assets/screen-filter-regex.png) |
 | XML tags & parameters | `src/bulk-match.js; src/auto-filter.js; src/prompt-tags.js` | [Manual Filter](./filters.html#xml) | [Screenshot](./assets/screen-filter-xml.png) |
 | Regex: list matched values | `src/bulk-match.js; src/auto-filter.js; src/prompt-tags.js` | [Manual Filter](./filters.html#regex-values) | [Screenshot](./assets/screen-filter-regexValues.png) |
-| Prompt & folder tag matching | `src/bulk-match.js; src/auto-filter.js; src/prompt-tags.js` | [Manual Filter](./filters.html#tags) | [Screenshot](./assets/screen-filter-tag.png) |
+| Prompt & folder tag matching | `src/bulk-match.js; src/auto-filter.js; src/prompt-tags.js` | [Manual Filter](./filters.html#tags) | [Screenshot](./assets/screen-filter-tag-autocomplete.png) |
 | Prompt & containing-folder targets | `src/bulk-match.js; src/auto-filter.js; src/prompt-tags.js` | [Manual Filter](./filters.html#targets) | [Screenshot](./assets/screen-filter-tag.png) |
 | Manual filter exclusions | `src/bulk-match.js; src/auto-filter.js; src/prompt-tags.js` | [Manual Filter](./filters.html#exclusions) | [Screenshot](./assets/screen-prompt-controls.png) |
 | Check recent chat manually | `src/bulk-match.js; src/auto-filter.js; src/prompt-tags.js` | [Manual Filter](./filters.html#chat) | [Screenshot](./assets/screen-chat-filter.png) |

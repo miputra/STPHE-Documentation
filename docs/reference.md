@@ -21,6 +21,15 @@ The `docs/` directory contains the complete static documentation website: naviga
 
 ---
 
+## 3.7.0 — Filter quick-pick tags & registered-tag autocomplete
+
+Release date: **2026-11-23**.
+
+- **Registered tags button in filters:** Added the **Registered tags** quick-pick button right beside the **Tag** label whenever **Tag (prompt / folder)** is selected in Manual Filter, Chat Filter’s **Select prompts to affect** form, or Auto Filter’s effect form. Clicking a tag fills the filter’s tag input and closes the popup.
+- **Registered-tag autocomplete on every tag textbox:** Added live autocomplete suggestions (backed by all unique prompt and folder tags, ranking prefix matches before substring matches) to the Prompt tags editor, Folder tags modal, Manual Filter tag input, Chat Filter effect tag input, and Auto Filter effect tag input. Supports clicking suggestions, `ArrowDown` / `ArrowUp` navigation, `Tab` / `Enter` selection, `Escape` / outside-click dismissal, and viewport-clamped scrolling with automatic above/below flipping.
+- **Observer isolation fix:** Fixed `watchPromptTagEditor()` so unrelated DOM mutations while the native prompt editor is closed never dismiss popups or autocomplete opened by other modals.
+- Validation: **76 local regression tests** passing in `STPHE/tests/regression.test.mjs`, plus live Playwright checks across all 5 tag inputs with 65 registered tags.
+
 ## 3.6.0 — Registered tags popup picker
 
 Release date: **2026-11-23**.

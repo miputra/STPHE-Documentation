@@ -2,7 +2,7 @@
   {
     "slug": "index",
     "title": "Overview & feature directory",
-    "intro": "Find every STPHE control and learn what it changes. These guides cover the v3.6.0 extension, from your first folder to folder & prompt tags, registered tag picking, preset group actions, and portable backups.",
+    "intro": "Find every STPHE control and learn what it changes. These guides cover the v3.7.0 extension, from your first folder to folder & prompt tags, registered tag picking & autocomplete, preset group actions, and portable backups.",
     "source": "src/panel.js; src/render.js; src/bootstrap.js",
     "sections": [
       {
@@ -41,7 +41,7 @@
       {
         "id": "docs",
         "title": "Search, examples & release notes",
-        "body": "<p>Use <strong>Search documentation</strong> to jump directly to a feature, for example “XML parameters”, “import tags”, or “before send”. On narrow screens, open the ☰ navigation first. The ◐ button switches light and dark themes. Click a screenshot to inspect the controls at full size.</p><p>See <a href=\"reference.md\">the detailed historical reference and release notes</a> for earlier releases. The <a href=\"feature-coverage.md\">coverage inventory</a> maps this documentation review to implementation files for extension version <strong>3.6.0</strong>.</p>",
+        "body": "<p>Use <strong>Search documentation</strong> to jump directly to a feature, for example “XML parameters”, “import tags”, or “before send”. On narrow screens, open the ☰ navigation first. The ◐ button switches light and dark themes. Click a screenshot to inspect the controls at full size.</p><p>See <a href=\"reference.md\">the detailed historical reference and release notes</a> for earlier releases. The <a href=\"feature-coverage.md\">coverage inventory</a> maps this documentation review to implementation files for extension version <strong>3.7.0</strong>.</p>",
         "screenshot": [
           "screen-panel.png",
           "Use the guides to identify these toolbar buttons, folder controls, and prompt-row actions.",
@@ -217,7 +217,7 @@
       {
         "id": "folder-tags",
         "title": "Add & edit folder tags",
-        "body": "<p>Click the tag icon on any named folder row—or choose <strong>Edit tags…</strong> in its ⋮ menu—to open the <strong>Folder tags</strong> modal. Type a tag and press <strong>Enter</strong>, or click the <strong>Registered tags</strong> button next to the <strong>Folder tags</strong> label to open a popup of all existing prompt and folder tags and click tags to add them to the draft. Click <strong>×</strong> on a chip to remove it, and click <strong>Save</strong> (which also commits any typed tag left in the input). Cancel or × discards unsaved edits.</p><p>Folders carrying tags highlight their tag icon and list their assigned tags on hover. Folder tags are matched alongside prompt tags whenever you use <strong>Tag (prompt / folder)</strong> in Manual Filter, Filter presets, Chat filter effects, or Auto Filter. They follow folder rename, move, and delete operations and are preserved in full and folder backups.</p>",
+        "body": "<p>Click the tag icon on any named folder row—or choose <strong>Edit tags…</strong> in its ⋮ menu—to open the <strong>Folder tags</strong> modal. Type a tag (with live <strong>autocomplete</strong> from registered tags) and press <strong>Enter</strong>, or click the <strong>Registered tags</strong> button next to the <strong>Folder tags</strong> label to open a popup of all existing prompt and folder tags and click tags to add them to the draft. Click <strong>×</strong> on a chip to remove it, and click <strong>Save</strong> (which also commits any typed tag left in the input). Cancel or × discards unsaved edits.</p><p>Folders carrying tags highlight their tag icon and list their assigned tags on hover. Folder tags are matched alongside prompt tags whenever you use <strong>Tag (prompt / folder)</strong> in Manual Filter, Filter presets, Chat filter effects, or Auto Filter. They follow folder rename, move, and delete operations and are preserved in full and folder backups.</p>",
         "screenshot": [
           "screen-folder-tags.png",
           "The Folder tags modal for Story/Weather displays the Registered tags button beside the Folder tags label, Weather and Atmosphere chips, the tag input, and Cancel/Save actions.",
@@ -277,7 +277,7 @@
       {
         "id": "tags",
         "title": "Add & remove multiple tags (prompts & folders)",
-        "body": "<ol><li>For a prompt, open a new or existing prompt in the native editor. For a named folder, click the tag icon on its row or open its ⋮ menu → <strong>Edit tags…</strong>.</li><li>To add a new tag, type it in the tags field (for example <code>Weather</code> or <code>High Fantasy</code>; spaces are allowed) and press <strong>Enter</strong>.</li><li>To reuse an existing tag without retyping, click the <strong>Registered tags</strong> button right beside the <strong>Prompt tags</strong> / <strong>Folder tags</strong> label. A floating, scrollable popup lists every unique tag currently registered across prompts and folders; click any tag to add it to the current draft (already-applied tags are highlighted and duplicates are skipped). Close the popup with <strong>×</strong>, by clicking outside it, or by pressing <strong>Escape</strong>.</li><li>Use × on a chip to remove it, then click <strong>Save</strong> to store your changes.</li></ol><p>Leading/trailing whitespace is trimmed and duplicate tags are ignored case-insensitively: Weather and weather are the same label. Closing or canceling without saving discards the draft (including tags picked from Registered tags). In the folder tag modal, Save also commits any typed tag text remaining in the input. For prompt tags, press Enter (or click a tag in Registered tags) before saving; a comma-separated phrase is not a list of separate tags.</p><p>Tags are extension metadata keyed by prompt identifier (<code>promptTags</code>) or folder path (<code>folderTags</code>). The same prompt identifier shares its tags across native presets, and folder tags automatically follow folder rename, move, and delete operations. Tags are not appended to text sent to the model, and they are distinct from XML tags inside prompt content.</p>",
+        "body": "<ol><li>For a prompt, open a new or existing prompt in the native editor. For a named folder, click the tag icon on its row or open its ⋮ menu → <strong>Edit tags…</strong>.</li><li>To add a tag by typing, enter it in the tags field (for example <code>Weather</code> or <code>High Fantasy</code>; spaces are allowed). As you type, a live <strong>autocomplete</strong> dropdown suggests matching registered tags (prefix matches first, skipping tags already in the draft): click a suggestion, press <strong>Tab</strong>, or use <strong>ArrowDown</strong>/<strong>ArrowUp</strong> + <strong>Enter</strong> to accept one, or press <strong>Enter</strong> directly to add a brand-new literal tag.</li><li>To browse and pick existing tags without typing, click the <strong>Registered tags</strong> button right beside the <strong>Prompt tags</strong> / <strong>Folder tags</strong> label. A floating, scrollable popup lists every unique tag currently registered across prompts and folders; click any tag to add it to the current draft (already-applied tags are highlighted and duplicates are skipped). Close the popup with <strong>×</strong>, by clicking outside it, or by pressing <strong>Escape</strong>.</li><li>Use × on a chip to remove it, then click <strong>Save</strong> to store your changes.</li></ol><p>Leading/trailing whitespace is trimmed and duplicate tags are ignored case-insensitively: Weather and weather are the same label. Closing or canceling without saving discards the draft (including tags picked via autocomplete or Registered tags). In the folder tag modal, Save also commits any typed tag text remaining in the input. For prompt tags, press Enter (or pick a tag from autocomplete / Registered tags) before saving; a comma-separated phrase is not a list of separate tags.</p><p>Tags are extension metadata keyed by prompt identifier (<code>promptTags</code>) or folder path (<code>folderTags</code>). The same prompt identifier shares its tags across native presets, and folder tags automatically follow folder rename, move, and delete operations. Tags are not appended to text sent to the model, and they are distinct from XML tags inside prompt content.</p>",
         "screenshot": [
           "screen-registered-tags.png",
           "The Prompt tags editor showing the Registered tags button next to the label with the Registered tags popup open above it. Highlighted tags are already in the draft; click any tag to add it, close with × or outside click, and Save to apply.",
@@ -288,12 +288,12 @@
       {
         "id": "tag-workflows",
         "title": "Use tags to filter & automate",
-        "body": "<p>Open Filter, choose <strong>Tag (prompt / folder)</strong>, enter a full tag name and click Apply. Matching is exact and case-insensitive, finds both tagged prompts and tagged folders without scanning prompt content, and respects scope and exclusions. Select a target and Enable/Disable, or save a preset. In Auto Filter, use <strong>Tag (prompt / folder)</strong> in the <strong>effect</strong> to choose which prompts and folders a chat condition controls. Every matched prompt and folder is enabled or disabled even if a parent folder is disabled.</p><p>One tag criterion is entered at a time; there is no multi-tag AND/OR builder. The panel’s name search does not search tags. Use <a href=\"backups.html#tags\">STPHE exports</a> to preserve assigned prompt and folder tags; native-only exports do not include them.</p>",
+        "body": "<p>Open Filter, choose <strong>Tag (prompt / folder)</strong>, type a tag name (using live registered-tag <strong>autocomplete</strong>) or click the <strong>Registered tags</strong> button beside the <strong>Tag</strong> label to pick one directly, and click Apply. Matching is exact and case-insensitive, finds both tagged prompts and tagged folders without scanning prompt content, and respects scope and exclusions. Select a target and Enable/Disable, or save a preset. In Auto Filter, use <strong>Tag (prompt / folder)</strong> in the <strong>effect</strong> (which also provides the <strong>Registered tags</strong> button and autocomplete) to choose which prompts and folders a chat condition controls. Every matched prompt and folder is enabled or disabled even if a parent folder is disabled.</p><p>One tag criterion is entered at a time; there is no multi-tag AND/OR builder. The panel’s name search does not search tags. Use <a href=\"backups.html#tags\">STPHE exports</a> to preserve assigned prompt and folder tags; native-only exports do not include them.</p>",
         "screenshot": [
           "screen-filter-tag.png",
-          "Tag (prompt / folder) is set to Weather. Apply finds 2 prompts and 1 folder matching that tag; choose a target and Enable/Disable to change them.",
+          "Tag (prompt / folder) includes the Registered tags quick-pick button beside the Tag label. Weather matches 2 prompts and 1 folder; choose a target and Enable/Disable to change them.",
           440,
-          563
+          568
         ]
       },
       {
@@ -407,12 +407,12 @@
       {
         "id": "tags",
         "title": "Prompt & folder tag matching",
-        "body": "<p>Choose <strong>Tag (prompt / folder)</strong> and enter one complete tag name. Leading/trailing whitespace is removed and case is ignored. <code>Fantasy</code> matches a Fantasy tag on prompts or folders, but not High Fantasy. It matches saved STPHE tag metadata without scanning prompt content, not XML or words inside content.</p><p>A prompt or folder can have multiple tags; matching any one equal to the query is sufficient. Every matched prompt and folder is enabled or disabled even when a parent folder is disabled. This criterion has no multi-tag AND/OR input. Add or remove tags through the <a href=\"prompts.html#tags\">native prompt editor or folder tag modal</a>, save, then apply again.</p>",
+        "body": "<p>Choose <strong>Tag (prompt / folder)</strong> and enter one complete tag name. As you type in the <strong>Tag</strong> box, live <strong>autocomplete</strong> suggests matching registered tags (prefix matches first; pick with click, <strong>Tab</strong>, or <strong>ArrowDown</strong>/<strong>ArrowUp</strong> + <strong>Enter</strong>). You can also click the <strong>Registered tags</strong> button right beside the <strong>Tag</strong> label to pick a tag from the floating popup. Leading/trailing whitespace is removed and case is ignored. <code>Fantasy</code> matches a Fantasy tag on prompts or folders, but not High Fantasy. It matches saved STPHE tag metadata without scanning prompt content, not XML or words inside content.</p><p>A prompt or folder can have multiple tags; matching any one equal to the query is sufficient. Every matched prompt and folder is enabled or disabled even when a parent folder is disabled. This criterion has no multi-tag AND/OR input. Add or remove tags through the <a href=\"prompts.html#tags\">native prompt editor or folder tag modal</a>, save, then apply again.</p>",
         "screenshot": [
-          "screen-filter-tag.png",
-          "Tag (prompt / folder) Weather matches 2 prompts and 1 tagged folder (Story/Weather) without scanning prompt content.",
+          "screen-filter-tag-autocomplete.png",
+          "In Tag (prompt / folder) mode, the Registered tags button sits beside the Tag label and typing opens live registered-tag autocomplete suggestions below the textbox.",
           440,
-          563
+          390
         ]
       },
       {
@@ -423,7 +423,7 @@
           "screen-filter-tag.png",
           "Below Matched prompts / folders, choose The prompt / folder, Last containing folder, or All containing folders before clicking Enable or Disable.",
           440,
-          563
+          568
         ]
       },
       {
@@ -462,7 +462,7 @@
       {
         "id": "chat-effect",
         "title": "Choose what a Chat action affects",
-        "body": "<p>The <strong>Select prompts to affect</strong> area is independent of the chat condition. Choose matching by XML, Word, Regex, Regex (list matched values), or <strong>Tag (prompt / folder)</strong> and click Find prompts; alternatively choose prompts and folders manually from the selection tree.</p><p>For matched effects, inspect Matched prompts / folders and choose a prompt/folder target before Enable/Disable. Manually chosen prompts change directly, and chosen folders use master mute/restore. The eligible selection respects manual exclusions. You can save the condition and effect as a Chat filter preset.</p>",
+        "body": "<p>The <strong>Select prompts to affect</strong> area is independent of the chat condition. Choose matching by XML, Word, Regex, Regex (list matched values), or <strong>Tag (prompt / folder)</strong> (with the <strong>Registered tags</strong> quick-pick button and live autocomplete) and click Find prompts; alternatively choose prompts and folders manually from the selection tree.</p><p>For matched effects, inspect Matched prompts / folders and choose a prompt/folder target before Enable/Disable. Manually chosen prompts change directly, and chosen folders use master mute/restore. The eligible selection respects manual exclusions. You can save the condition and effect as a Chat filter preset.</p>",
         "screenshot": [
           "screen-chat-effect.png",
           "Select prompts to affect is separate from the chat condition. Choose a selection mode and Find prompts to determine the affected prompts.",
@@ -574,12 +574,12 @@
       {
         "id": "first-rule",
         "title": "Create your first rule",
-        "body": "<ol><li>Open the toolbar wand, <strong>Auto Filter</strong>.</li><li>Name a rule “Rain scene”. Set its condition to Word = <code>rain</code> and depth to 3 recent messages.</li><li>For the effect, choose matching by <strong>Tag (prompt / folder)</strong> = <code>Weather</code> and target The prompt / folder.</li><li>Choose <strong>Enable</strong> as the action and add the filter.</li><li>Ensure the master switch, rule and containing groups are enabled. Use <strong>Re-evaluate now</strong>.</li></ol><p>Rain within the window enables matching Weather prompts and folders. When the condition is not met, this Enable rule disables its current targets. Every matched prompt and folder is toggled even if a parent folder is disabled. Read the next sections before using folder targets or overlapping rules.</p>",
+        "body": "<ol><li>Open the toolbar wand, <strong>Auto Filter</strong>.</li><li>Name a rule “Rain scene”. Set its condition to Word = <code>rain</code> and depth to 3 recent messages.</li><li>For the effect, choose matching by <strong>Tag (prompt / folder)</strong> = <code>Weather</code> (using live registered-tag autocomplete or the <strong>Registered tags</strong> button beside the Tag label) and target The prompt / folder.</li><li>Choose <strong>Enable</strong> as the action and add the filter.</li><li>Ensure the master switch, rule and containing groups are enabled. Use <strong>Re-evaluate now</strong>.</li></ol><p>Rain within the window enables matching Weather prompts and folders. When the condition is not met, this Enable rule disables its current targets. Every matched prompt and folder is toggled even if a parent folder is disabled. Read the next sections before using folder targets or overlapping rules.</p>",
         "screenshot": [
           "screen-auto-rule.png",
           "Example draft: tavern in the last four chat messages triggers an effect targeting the Atmosphere tag. Add filter stores the rule.",
           560,
-          964
+          969
         ]
       },
       {
@@ -590,7 +590,7 @@
           "screen-auto-rule.png",
           "The Condition section chooses the chat match type, text, case sensitivity, and depth. The Effect section below independently chooses the affected prompts.",
           560,
-          964
+          969
         ]
       },
       {
@@ -623,7 +623,7 @@
           "screen-auto-rule.png",
           "The Effect action chooses Enable when triggered or Disable when triggered. The opposite state applies when the condition no longer matches.",
           560,
-          964
+          969
         ]
       },
       {
