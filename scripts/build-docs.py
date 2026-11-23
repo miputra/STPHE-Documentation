@@ -30,7 +30,7 @@ template = re.sub(r'assets/site\.(css|js)(?:\?[^" ]*)?', lambda match:
     f'assets/site.{match[1]}?v=' + hashlib.sha256((DOCS / 'assets' / f'site.{match[1]}').read_bytes()).hexdigest()[:10], template)
 prefix = template.split('<main id="main">')[0]
 search = []
-coverage = ['# Feature documentation coverage', '', 'Audited against the v3.4.0 source on 2026-10-09. Every guide section includes a focused screenshot of the relevant application controls. Screenshots use temporary sample data; captions identify the controls to inspect.', '', 'Edit `guide-content.json`, then run `python scripts/build-docs.py`. Run `python scripts/check-docs.py` to validate local links, anchors, images, coverage, and search entries.', '', '| Feature | Implementation | Guide | Focused image |', '|---|---|---|---|']
+coverage = ['# Feature documentation coverage', '', 'Audited against the v3.5.0 source on 2026-11-23. Every guide section includes a focused screenshot of the relevant application controls. Screenshots use temporary sample data; captions identify the controls to inspect.', '', 'Edit `guide-content.json`, then run `python scripts/build-docs.py`. Run `python scripts/check-docs.py` to validate local links, anchors, images, coverage, and search entries.', '', '| Feature | Implementation | Guide | Focused image |', '|---|---|---|---|']
 for position, page in enumerate(PAGES):
     url = page['slug'] + '.html'
     start = re.sub(r'<title>.*?</title>', f'<title>{ESC(page["title"])} · STPHE</title>', prefix)
@@ -54,7 +54,7 @@ for position, page in enumerate(PAGES):
         coverage.append(f'| {section["title"]} | `{page["source"]}` | [{page["title"]}](./{url}#{section["id"]}) | [Screenshot](./assets/{name}) |')
     prev = NAV[position-1] if position else None
     nxt = NAV[position+1]
-    body += '<div class="page-nav">' + (f'<a href="{prev[0]}">← {ESC(prev[1])}</a>' if prev else '<span></span>') + f'<a href="{nxt[0]}">{ESC(nxt[1])} →</a></div><footer>STPHE v3.4.0 · Documentation reviewed 2026-10-09 · <a href="credits.html">Credits &amp; donations</a></footer></main>'
+    body += '<div class="page-nav">' + (f'<a href="{prev[0]}">← {ESC(prev[1])}</a>' if prev else '<span></span>') + f'<a href="{nxt[0]}">{ESC(nxt[1])} →</a></div><footer>STPHE v3.5.0 · Documentation reviewed 2026-11-23 · <a href="credits.html">Credits &amp; donations</a></footer></main>'
     body += '<aside class="toc"><p class="nav-label">ON THIS PAGE</p><nav aria-label="On this page">' + ''.join(toc) + '</nav></aside></div></body></html>\n'
     (DOCS / url).write_text(start + body, encoding='utf-8')
 credits = re.sub(r'<nav aria-label="Documentation">.*?</nav>', navigation('credits.html'), template, flags=re.S)

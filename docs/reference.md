@@ -21,7 +21,9 @@ The `docs/` directory contains the complete static documentation website: naviga
 
 ---
 
-## Folder tags, preset group actions, reordering & group exports
+## 3.5.0 — Folder tags, preset group actions, reordering & group exports
+
+Release date: **2026-11-23**.
 
 - **Folder tags (`folderTags`):** Named folders now support multiple tags via a tag button on each folder row and **Edit tags…** in the folder’s ⋮ menu. Folder tags trim and deduplicate case-insensitively, follow folder rename/move/delete, and round-trip through full exports, folder exports, append-after path remapping, and all prompt-list import modes.
 - **Tag (prompt / folder) matching:** Tag filters in Manual Filter, Filter presets, Chat filter effects, and Auto Filter effects match both tagged prompts and tagged folders without scanning prompt content, respecting scope and independent manual/auto exclusions.

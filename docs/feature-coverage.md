@@ -1,6 +1,6 @@
 # Feature documentation coverage
 
-Audited against the v3.4.0 source on 2026-10-09. Every guide section includes a focused screenshot of the relevant application controls. Screenshots use temporary sample data; captions identify the controls to inspect.
+Audited against the v3.5.0 source on 2026-11-23. Every guide section includes a focused screenshot of the relevant application controls. Screenshots use temporary sample data; captions identify the controls to inspect.
 
 Edit `guide-content.json`, then run `python scripts/build-docs.py`. Run `python scripts/check-docs.py` to validate local links, anchors, images, coverage, and search entries.
 

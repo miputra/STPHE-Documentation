@@ -2,7 +2,7 @@
   {
     "slug": "index",
     "title": "Overview & feature directory",
-    "intro": "Find every STPHE control and learn what it changes. These guides cover the v3.4.0 extension, from your first folder to tag-based automation and portable backups.",
+    "intro": "Find every STPHE control and learn what it changes. These guides cover the v3.5.0 extension, from your first folder to folder & prompt tags, preset group actions, and portable backups.",
     "source": "src/panel.js; src/render.js; src/bootstrap.js",
     "sections": [
       {
@@ -41,7 +41,7 @@
       {
         "id": "docs",
         "title": "Search, examples & release notes",
-        "body": "<p>Use <strong>Search documentation</strong> to jump directly to a feature, for example “XML parameters”, “import tags”, or “before send”. On narrow screens, open the ☰ navigation first. The ◐ button switches light and dark themes. Click a screenshot to inspect the controls at full size.</p><p>See <a href=\"reference.md\">the detailed historical reference and release notes</a> for earlier releases. The <a href=\"feature-coverage.md\">coverage inventory</a> maps this documentation review to implementation files. This documentation expansion keeps extension version <strong>3.4.0</strong>; it does not change runtime behavior.</p>",
+        "body": "<p>Use <strong>Search documentation</strong> to jump directly to a feature, for example “XML parameters”, “import tags”, or “before send”. On narrow screens, open the ☰ navigation first. The ◐ button switches light and dark themes. Click a screenshot to inspect the controls at full size.</p><p>See <a href=\"reference.md\">the detailed historical reference and release notes</a> for earlier releases. The <a href=\"feature-coverage.md\">coverage inventory</a> maps this documentation review to implementation files for extension version <strong>3.5.0</strong>.</p>",
         "screenshot": [
           "screen-panel.png",
           "Use the guides to identify these toolbar buttons, folder controls, and prompt-row actions.",

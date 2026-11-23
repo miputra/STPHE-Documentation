@@ -17,7 +17,7 @@
   {
     "url": "index.html#docs",
     "title": "Overview & feature directory · Search, examples & release notes",
-    "text": " Use  Search documentation  to jump directly to a feature, for example “XML parameters”, “import tags”, or “before send”. On narrow screens, open the ☰ navigation first. The ◐ button switches light and dark themes. Click a screenshot to inspect the controls at full size.  See  the detailed historical reference and release notes  for earlier releases. The  coverage inventory  maps this documentation review to implementation files. This documentation expansion keeps extension version  3.4.0 ; it does not change runtime behavior.  Use the guides to identify these toolbar buttons, folder controls, and prompt-row actions."
+    "text": " Use  Search documentation  to jump directly to a feature, for example “XML parameters”, “import tags”, or “before send”. On narrow screens, open the ☰ navigation first. The ◐ button switches light and dark themes. Click a screenshot to inspect the controls at full size.  See  the detailed historical reference and release notes  for earlier releases. The  coverage inventory  maps this documentation review to implementation files for extension version  3.5.0 .  Use the guides to identify these toolbar buttons, folder controls, and prompt-row actions."
   },
   {
     "url": "getting-started.html#install",
