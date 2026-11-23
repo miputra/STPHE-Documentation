@@ -2,7 +2,7 @@
   {
     "slug": "index",
     "title": "Overview & feature directory",
-    "intro": "Find every STPHE control and learn what it changes. These guides cover the v3.5.0 extension, from your first folder to folder & prompt tags, preset group actions, and portable backups.",
+    "intro": "Find every STPHE control and learn what it changes. These guides cover the v3.6.0 extension, from your first folder to folder & prompt tags, registered tag picking, preset group actions, and portable backups.",
     "source": "src/panel.js; src/render.js; src/bootstrap.js",
     "sections": [
       {
@@ -41,7 +41,7 @@
       {
         "id": "docs",
         "title": "Search, examples & release notes",
-        "body": "<p>Use <strong>Search documentation</strong> to jump directly to a feature, for example “XML parameters”, “import tags”, or “before send”. On narrow screens, open the ☰ navigation first. The ◐ button switches light and dark themes. Click a screenshot to inspect the controls at full size.</p><p>See <a href=\"reference.md\">the detailed historical reference and release notes</a> for earlier releases. The <a href=\"feature-coverage.md\">coverage inventory</a> maps this documentation review to implementation files for extension version <strong>3.5.0</strong>.</p>",
+        "body": "<p>Use <strong>Search documentation</strong> to jump directly to a feature, for example “XML parameters”, “import tags”, or “before send”. On narrow screens, open the ☰ navigation first. The ◐ button switches light and dark themes. Click a screenshot to inspect the controls at full size.</p><p>See <a href=\"reference.md\">the detailed historical reference and release notes</a> for earlier releases. The <a href=\"feature-coverage.md\">coverage inventory</a> maps this documentation review to implementation files for extension version <strong>3.6.0</strong>.</p>",
         "screenshot": [
           "screen-panel.png",
           "Use the guides to identify these toolbar buttons, folder controls, and prompt-row actions.",
@@ -217,12 +217,12 @@
       {
         "id": "folder-tags",
         "title": "Add & edit folder tags",
-        "body": "<p>Click the tag icon on any named folder row—or choose <strong>Edit tags…</strong> in its ⋮ menu—to open the <strong>Folder tags</strong> modal. Type a tag and press <strong>Enter</strong> to add a chip, click <strong>×</strong> on a chip to remove it, and click <strong>Save</strong> (which also commits any typed tag left in the input). Cancel or × discards unsaved edits.</p><p>Folders carrying tags highlight their tag icon and list their assigned tags on hover. Folder tags are matched alongside prompt tags whenever you use <strong>Tag (prompt / folder)</strong> in Manual Filter, Filter presets, Chat filter effects, or Auto Filter. They follow folder rename, move, and delete operations and are preserved in full and folder backups.</p>",
+        "body": "<p>Click the tag icon on any named folder row—or choose <strong>Edit tags…</strong> in its ⋮ menu—to open the <strong>Folder tags</strong> modal. Type a tag and press <strong>Enter</strong>, or click the <strong>Registered tags</strong> button next to the <strong>Folder tags</strong> label to open a popup of all existing prompt and folder tags and click tags to add them to the draft. Click <strong>×</strong> on a chip to remove it, and click <strong>Save</strong> (which also commits any typed tag left in the input). Cancel or × discards unsaved edits.</p><p>Folders carrying tags highlight their tag icon and list their assigned tags on hover. Folder tags are matched alongside prompt tags whenever you use <strong>Tag (prompt / folder)</strong> in Manual Filter, Filter presets, Chat filter effects, or Auto Filter. They follow folder rename, move, and delete operations and are preserved in full and folder backups.</p>",
         "screenshot": [
           "screen-folder-tags.png",
-          "The Folder tags modal for Story/Weather displays Weather and Atmosphere chips. Press Enter for each tag, × removes one, and Save commits changes.",
+          "The Folder tags modal for Story/Weather displays the Registered tags button beside the Folder tags label, Weather and Atmosphere chips, the tag input, and Cancel/Save actions.",
           440,
-          304
+          326
         ]
       },
       {
@@ -277,12 +277,12 @@
       {
         "id": "tags",
         "title": "Add & remove multiple tags (prompts & folders)",
-        "body": "<ol><li>For a prompt, open a new or existing prompt in the native editor. For a named folder, click the tag icon on its row or open its ⋮ menu → <strong>Edit tags…</strong>.</li><li>In the tags field, type <code>Weather</code> and press <strong>Enter</strong> to create one tag.</li><li>Type <code>High Fantasy</code> and press Enter again. Spaces are allowed inside one tag.</li><li>Use × on a chip to remove it, then click <strong>Save</strong> to store your changes.</li></ol><p>Leading/trailing whitespace is trimmed and duplicate tags are ignored case-insensitively: Weather and weather are the same label. Closing or canceling without saving discards the draft. In the folder tag modal, Save also commits any typed tag text remaining in the input. For prompt tags, press Enter for each tag before saving; a comma-separated phrase is not a list of separate tags.</p><p>Tags are extension metadata keyed by prompt identifier (<code>promptTags</code>) or folder path (<code>folderTags</code>). The same prompt identifier shares its tags across native presets, and folder tags automatically follow folder rename, move, and delete operations. Tags are not appended to text sent to the model, and they are distinct from XML tags inside prompt content.</p>",
+        "body": "<ol><li>For a prompt, open a new or existing prompt in the native editor. For a named folder, click the tag icon on its row or open its ⋮ menu → <strong>Edit tags…</strong>.</li><li>To add a new tag, type it in the tags field (for example <code>Weather</code> or <code>High Fantasy</code>; spaces are allowed) and press <strong>Enter</strong>.</li><li>To reuse an existing tag without retyping, click the <strong>Registered tags</strong> button right beside the <strong>Prompt tags</strong> / <strong>Folder tags</strong> label. A floating, scrollable popup lists every unique tag currently registered across prompts and folders; click any tag to add it to the current draft (already-applied tags are highlighted and duplicates are skipped). Close the popup with <strong>×</strong>, by clicking outside it, or by pressing <strong>Escape</strong>.</li><li>Use × on a chip to remove it, then click <strong>Save</strong> to store your changes.</li></ol><p>Leading/trailing whitespace is trimmed and duplicate tags are ignored case-insensitively: Weather and weather are the same label. Closing or canceling without saving discards the draft (including tags picked from Registered tags). In the folder tag modal, Save also commits any typed tag text remaining in the input. For prompt tags, press Enter (or click a tag in Registered tags) before saving; a comma-separated phrase is not a list of separate tags.</p><p>Tags are extension metadata keyed by prompt identifier (<code>promptTags</code>) or folder path (<code>folderTags</code>). The same prompt identifier shares its tags across native presets, and folder tags automatically follow folder rename, move, and delete operations. Tags are not appended to text sent to the model, and they are distinct from XML tags inside prompt content.</p>",
         "screenshot": [
-          "prompt-tags-editor.png",
-          "The native editor’s Tags field contains Weather and High Fantasy chips. Enter commits each draft tag; × removes it. Save stores the changes.",
-          583,
-          141
+          "screen-registered-tags.png",
+          "The Prompt tags editor showing the Registered tags button next to the label with the Registered tags popup open above it. Highlighted tags are already in the draft; click any tag to add it, close with × or outside click, and Save to apply.",
+          682,
+          249
         ]
       },
       {

@@ -2,7 +2,7 @@
 
 Every section in `guide-content.json` requires a `screenshot` array: PNG filename, a caption describing visible controls, pixel width, and pixel height. The builder places this screenshot before the section’s instructions. Use real application captures; do not replace them with illustrated instructions.
 
-The `screen-*.png` assets were captured from STPHE v3.5.0 running in SillyTavern 1.18.0 on 2026-11-23. They use temporary sample prompts (Rain ambience, Thunder, Tavern dialogue, and Main instructions). The existing tag-editor and automation-timing captures are retained where they show the exact controls being explained. Theme colors can vary.
+The `screen-*.png` assets were captured from STPHE v3.6.0 running in SillyTavern 1.18.0 on 2026-11-23. They use temporary sample prompts (Rain ambience, Thunder, Tavern dialogue, and Main instructions). `screen-registered-tags.png` captures the Prompt tags editor with the Registered tags popup open, and the automation-timing capture is retained where it shows the exact controls being explained. Theme colors can vary.
 
 To refresh captures, run `node scripts/capture-docs.cjs` with Playwright installed and Microsoft Edge available. `ST_URL` defaults to `http://localhost:8000`; set `PLAYWRIGHT_MODULE` to an absolute package path if Playwright is not locally resolvable. The extension must be available at `/scripts/extensions/third-party/prompt-folders/`.
 

@@ -21,6 +21,15 @@ The `docs/` directory contains the complete static documentation website: naviga
 
 ---
 
+## 3.6.0 — Registered tags popup picker
+
+Release date: **2026-11-23**.
+
+- **Registered tags popup picker:** Added a compact **Registered tags** button right beside the **Prompt tags** and **Folder tags** labels in both SillyTavern’s native prompt editor and STPHE’s Folder tags modal.
+- **One-click tag reuse:** Clicking **Registered tags** opens a floating popup listing every unique tag currently registered across prompts (`promptTags`) and folders (`folderTags`), deduplicated case-insensitively and sorted alphabetically. Clicking a tag adds it to the current draft (just like typing it and pressing **Enter**); already-applied tags are highlighted and duplicates are ignored. Changes are still only persisted when you click **Save** and discarded on cancel/close.
+- **Dismissal & overflow safety:** The popup closes via its **×** button, clicking anywhere outside the popup, pressing **Escape**, toggling the button, or closing the parent editor. Its height and position clamp automatically to the viewport (flipping above/below the button as needed) with clean scrolling and wrapping for large tag lists and long tag names, and applied tag chips scroll cleanly inside a bounded container so modals never overflow off-screen.
+- Validation: **74 local regression tests** passing in `STPHE/tests/regression.test.mjs`, plus live Playwright layout/overflow checks with 82 registered tags across desktop and short viewports.
+
 ## 3.5.0 — Folder tags, preset group actions, reordering & group exports
 
 Release date: **2026-11-23**.

@@ -1,6 +1,6 @@
 # Feature documentation coverage
 
-Audited against the v3.5.0 source on 2026-11-23. Every guide section includes a focused screenshot of the relevant application controls. Screenshots use temporary sample data; captions identify the controls to inspect.
+Audited against the v3.6.0 source on 2026-11-23. Every guide section includes a focused screenshot of the relevant application controls. Screenshots use temporary sample data; captions identify the controls to inspect.
 
 Edit `guide-content.json`, then run `python scripts/build-docs.py`. Run `python scripts/check-docs.py` to validate local links, anchors, images, coverage, and search entries.
 
@@ -27,7 +27,7 @@ Edit `guide-content.json`, then run `python scripts/build-docs.py`. Run `python 
 | Folder menu, tags, export & deletion | `src/folders.js; src/render.js; src/dnd.js` | [Folders & ordering](./folders.html#actions) | [Screenshot](./assets/screen-folder-menu.png) |
 | Create & insert prompts | `src/native.js; src/prompt-tags.js; src/render.js` | [Prompts & tags](./prompts.html#create) | [Screenshot](./assets/screen-prompt-menu.png) |
 | Edit, rename & enable | `src/native.js; src/prompt-tags.js; src/render.js` | [Prompts & tags](./prompts.html#edit) | [Screenshot](./assets/screen-editor.png) |
-| Add & remove multiple tags (prompts & folders) | `src/native.js; src/prompt-tags.js; src/render.js` | [Prompts & tags](./prompts.html#tags) | [Screenshot](./assets/prompt-tags-editor.png) |
+| Add & remove multiple tags (prompts & folders) | `src/native.js; src/prompt-tags.js; src/render.js` | [Prompts & tags](./prompts.html#tags) | [Screenshot](./assets/screen-registered-tags.png) |
 | Use tags to filter & automate | `src/native.js; src/prompt-tags.js; src/render.js` | [Prompts & tags](./prompts.html#tag-workflows) | [Screenshot](./assets/screen-filter-tag.png) |
 | View content & tags read-only | `src/native.js; src/prompt-tags.js; src/render.js` | [Prompts & tags](./prompts.html#view) | [Screenshot](./assets/screen-prompt-view.png) |
 | Preview all enabled prompts | `src/native.js; src/prompt-tags.js; src/render.js` | [Prompts & tags](./prompts.html#preview) | [Screenshot](./assets/screen-preview.png) |

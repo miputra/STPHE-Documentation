@@ -103,6 +103,20 @@ const extensionCandidates = [
  await page.evaluate(async p=>(await import(p+'native.js')).openNativeEditor('rain'),extension);await page.waitForTimeout(500);
  await page.setViewportSize({width:1440,height:900});await page.waitForTimeout(300);
  await shot('screen-editor','#completion_prompt_manager_popup');
+ await page.locator('.pf-tag-editor').scrollIntoViewIfNeeded();await page.waitForTimeout(150);
+ await page.locator('.pf-tag-editor .pf-tag-picker-btn').click();await page.waitForTimeout(200);
+ {
+  const popBox=await page.locator('#pf-tag-picker-popup').boundingBox();
+  const edBox=await page.locator('.pf-tag-editor').boundingBox();
+  const pad=12;
+  const x=Math.max(0,Math.floor(Math.min(popBox.x,edBox.x)-pad));
+  const y=Math.max(0,Math.floor(Math.min(popBox.y,edBox.y)-pad));
+  const right=Math.min(1440,Math.ceil(Math.max(popBox.x+popBox.width,edBox.x+edBox.width)+pad));
+  const bottom=Math.min(900,Math.ceil(Math.max(popBox.y+popBox.height,edBox.y+edBox.height)+pad));
+  await page.screenshot({path:path.join(__dirname,'../docs/assets','screen-registered-tags.png'),clip:{x,y,width:right-x,height:bottom-y}});
+  shots.push('screen-registered-tags');console.log('Captured screen-registered-tags');
+ }
+ await page.locator('#pf-tag-picker-popup .pf-tag-picker-close').click();await page.waitForTimeout(100);
  await page.locator('#completion_prompt_manager_popup_entry_form_close').click();
  await page.evaluate(async p=>(await import(p+'import-export.js')).restorePromptsFromImport({prompts:[{identifier:'rain-imported',name:'Rain ambience',content:'Describe heavy rain outside the tavern.',role:'system'}],prompt_order:[]}),extension);
  await shot('screen-conflicts','#pf-ic-overlay .pf-view-modal');await page.locator('#pf-ic-close').click();
