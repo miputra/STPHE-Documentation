@@ -83,7 +83,7 @@ for guide in content:
             if data[:8] != b'\x89PNG\r\n\x1a\n' or struct.unpack('>II', data[16:24]) != (width, height):
                 errors.append(f'{url}: invalid PNG or incorrect dimensions')
         section_html = re.search(r'<section aria-labelledby="' + re.escape(section['id']) + r'">(.*?)</section>', (DOCS / (guide['slug'] + '.html')).read_text(encoding='utf-8'), re.S)
-        if not section_html or f'src="{image}"' not in section_html[1]:
+        if not section_html or not re.search(rf'src="{re.escape(image)}(?:\?[^"]*)?"', section_html[1]):
             errors.append(f'{url}: screenshot missing from its own section')
         if section_html and '.svg' in section_html[1]:
             errors.append(f'{url}: illustration remains in feature section')

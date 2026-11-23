@@ -46,7 +46,9 @@ for position, page in enumerate(PAGES):
             if target == section['id']:
                 body += f'<span class="anchor-alias" id="{old}"></span>'
         body += f'\n<section aria-labelledby="{section["id"]}"><h2 id="{section["id"]}">{ESC(section["title"])}</h2>'
-        body += f'<figure><a href="assets/{name}"><img src="assets/{name}" alt="{ESC(caption, quote=True)}" loading="lazy" width="{image_width}" height="{image_height}"></a><figcaption>{ESC(caption)} Open the screenshot to enlarge.</figcaption></figure>{section["body"]}</section>\n'
+        img_hash = hashlib.sha256((DOCS / "assets" / name).read_bytes()).hexdigest()[:10]
+        img_url = f'assets/{name}?v={img_hash}'
+        body += f'<figure><a href="{img_url}"><img src="{img_url}" alt="{ESC(caption, quote=True)}" loading="lazy" width="{image_width}" height="{image_height}"></a><figcaption>{ESC(caption)} Open the screenshot to enlarge.</figcaption></figure>{section["body"]}</section>\n'
         toc.append(f'<a href="#{section["id"]}">{ESC(section["title"])}</a>')
         search.append({'url': f'{url}#{section["id"]}', 'title': f'{page["title"]} · {section["title"]}', 'text': plain(section['body']) + ' ' + caption})
         coverage.append(f'| {section["title"]} | `{page["source"]}` | [{page["title"]}](./{url}#{section["id"]}) | [Screenshot](./assets/{name}) |')
